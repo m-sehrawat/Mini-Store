@@ -32,7 +32,7 @@ export const Products = () => {
     return (
         <>
             <Box>
-                <Heading m={10} textAlign={'center'}>All Products Page</Heading>
+                <Heading m={10} textAlign={'center'}>All Products</Heading>
             </Box>
 
             <Grid templateColumns='repeat(4, 1fr)' gap={6} maxW={1200} m={'40px auto'}>
