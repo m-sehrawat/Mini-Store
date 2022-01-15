@@ -1,4 +1,4 @@
-import { Grid, Box, Image, Text, Flex, Center, Button, HStack, Heading } from "@chakra-ui/react";
+import { Grid, Box, Image, Text, Flex, Button, HStack, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 

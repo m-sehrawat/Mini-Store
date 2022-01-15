@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
