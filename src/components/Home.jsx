@@ -8,6 +8,7 @@ export const Home = () => {
             <Box>
                 <Heading m={10} textAlign={'center'}>Home Page</Heading>
             </Box>
+            
             <SimpleGrid columns={3} spacing={10} maxW={1100} m={'20px auto'}>
                 <Link to={'/category/men'}>
                     <Box >
