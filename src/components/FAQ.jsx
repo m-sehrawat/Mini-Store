@@ -4,7 +4,7 @@ export const FAQ = () => {
 
     return (
         <>
-            <Center h={357}>
+            <Center h={377}>
                 <Heading textAlign={'center'}>FAQ Page</Heading>
             </Center>
         </>

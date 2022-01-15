@@ -4,7 +4,7 @@ export const Contact = () => {
 
     return (
         <>
-            <Center h={357}>
+            <Center h={377}>
                 <Heading textAlign={'center'}>Contact Us Page</Heading>
             </Center>
         </>
