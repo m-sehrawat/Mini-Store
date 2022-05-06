@@ -1,5 +1,17 @@
 body {
-    margin: 0%;
-    padding: 0%;
-  }
+  margin: 0%;
   
+}
+
+*{
+  font-family: 'Rubik', sans-serif;
+}
+
+.zoom{
+  transition: all 1s ease-in-out;
+}
+
+.zoom:hover{
+  transform: scale(1.2);
+}
+

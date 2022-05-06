@@ -1,42 +1,33 @@
-import { Box, Flex, Heading, Image, SimpleGrid, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+
+import { Grid } from "@chakra-ui/react";
+import { Section } from "./MiniComponents";
 
 export const Home = () => {
 
     return (
         <>
-            <Box>
-                <Heading m={10} textAlign={'center'}>Home Page</Heading>
-            </Box>
-            
-            <SimpleGrid columns={3} spacing={10} maxW={1100} m={'20px auto'}>
-                <Link to={'/category/men'}>
-                    <Box >
-                        <Image _hover={{ boxShadow: '2xl' }} borderRadius='full' src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/066cb1d4e2fd4281aceaac8300b7f4c9_9366/AEROREADY_Designed_To_Move_Sport_Tee_Red_GM2108_21_model.jpg"></Image>
-                        <Flex justify={'center'}>
-                            <Text mt={5} fontSize={25}>MEN</Text>
-                        </Flex>
-                    </Box>
-                </Link>
+            <Grid maxW={'1200px'} p={'20px'} m={'20px auto'} gap={'30px'} templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']}>
 
-                <Link to={'/category/women'}>
-                    <Box>
-                        <Image _hover={{ boxShadow: '2xl' }} borderRadius='full' src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/420cc5514bed47f68e4cac43014baef3_9366/High-Support_Bra_Black_GL0589_21_model.jpg"></Image>
-                        <Flex justify={'center'}>
-                            <Text mt={5} fontSize={25}>WOMEN</Text>
-                        </Flex>
-                    </Box>
-                </Link>
+                <Section
+                    title={"Men's Products"}
+                    path={'/category/men'}
+                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/cacb7e977fda43e88809ac1e00f709ef_9366/Runner_Tee_Blue_GC6719_21_model.jpg"}
+                />
 
-                <Link to={'/category/kids'}>
-                    <Box>
-                        <Image _hover={{ boxShadow: '2xl' }} borderRadius='full' src="https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/37f69f2a03fa4897b526ac8900dff31d_9366/X_Training_Goalkeeper_Gloves_Yellow_GK3513_01_standard.jpg"></Image>
-                        <Flex justify={'center'}>
-                            <Text mt={5} fontSize={25}>KIDS</Text>
-                        </Flex>
-                    </Box>
-                </Link>
-            </SimpleGrid>
+                <Section
+                    title={"Women's Products"}
+                    path={'/category/women'}
+                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d596368f54d548c78d45ac5b01835e33_9366/Ultimate_Bra_Blue_GP6781_22_model.jpg"}
+                />
+
+                <Section
+                    title={"Kid's Products"}
+                    path={'/category/kids'}
+                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/30689ff7b9e542b6a46faafc00fd26bd_9366/Predator_20_Training_Gloves_Black_FH7294_01_standard.jpg"}
+                />
+
+            </Grid>
         </>
     );
 };
+
