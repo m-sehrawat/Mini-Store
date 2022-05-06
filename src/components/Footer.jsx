@@ -1,32 +1,22 @@
-import { Flex, Text, HStack, Button, VStack } from "@chakra-ui/react";
-import { EmailIcon } from '@chakra-ui/icons'
-import { FaTwitter, FaFacebook } from 'react-icons/fa'
-import { MdCall } from "react-icons/md"
-import { Link } from "react-router-dom";
+import { Flex, Text, HStack, Button, VStack, Link } from "@chakra-ui/react";
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+
 
 export const Footer = () => {
 
     return (
-        <>
-            <Flex h={200} bg={'#212121'} color={'white'} justify={'center'} mt={20}>
-                <VStack>
-                    <Text my={3}>Made by Mohit Sehrawat | New Delhi | Contact us</Text>
-                    <HStack>
-                        <Button colorScheme='facebook' size='sm' leftIcon={<FaFacebook />}>
-                            <Link to={"/contact"}>Facebook</Link>
-                        </Button>
-                        <Button colorScheme='twitter' size='sm' leftIcon={<FaTwitter />}>
-                             <Link to={"/contact"}>Twitter</Link>
-                        </Button>
-                        <Button leftIcon={<EmailIcon />} size='sm' colorScheme='teal' variant='solid'>
-                        <Link to={"/contact"}>Email</Link>
-                        </Button>
-                        <Button rightIcon={<MdCall />} size='sm' colorScheme='red'>
-                        <Link to={"/contact"}>Call us</Link>
-                        </Button>
-                    </HStack>
-                </VStack>
-            </Flex>
-        </>
+        <Flex h={'160px'} bg={'#212121'} color={'white'} justify={'center'} mt={20}>
+            <VStack>
+                <Text my={'26px'}>Made with ❤️ by Mohit Sehrawat</Text>
+                <HStack>
+                    <Button colorScheme='linkedin' size='sm' leftIcon={<FaLinkedin />}>
+                        <Link target={"_blank"} href={"https://www.linkedin.com/in/m-sehrawat/"}>LinkedIn</Link>
+                    </Button>
+                    <Button colorScheme='red' size='sm' leftIcon={<FaGithub />}>
+                        <Link target={"_blank"} href={"https://github.com/m-sehrawat"}>GitHub</Link>
+                    </Button>
+                </HStack>
+            </VStack>
+        </Flex>
     );
 };
