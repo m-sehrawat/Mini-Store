@@ -8,7 +8,7 @@ export const Navbar = () => {
             <Flex h={14} bg={'#F5F5F5'}>
                 <Center>
                     <Link to={'/'}>
-                        <Heading ml={5} fontSize={['16px','20px']}>Mini Store</Heading>
+                        <Heading ml={5} display={['none', 'block']} fontSize={'20px'}>Mini Store</Heading>
                     </Link>
                 </Center>
                 <Spacer />
