@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 export const ProductCategory = () => {
 
     const { id } = useParams();
+    console.log('id:', id)
     const [products, setProducts] = useState([]);
 
     useEffect(() => {

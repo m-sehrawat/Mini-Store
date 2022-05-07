@@ -6,7 +6,7 @@ const initState = {
     isError: false
 }
 
-export const reducer = (state = initState, { type, payload }) => {
+export const allProductsReducer = (state = initState, { type, payload }) => {
     switch (type) {
         case GET_DATA_LOADING:
             return { ...state, isLoading: true, isError: false };

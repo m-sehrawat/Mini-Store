@@ -1,7 +1,7 @@
 import { Grid, Box, Flex, Button, HStack, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getRequest } from "../redux/actions";
+import { getAllDataRequest } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
@@ -12,10 +12,10 @@ export const Products = () => {
     const [limit, setlimit] = useState(null);
 
     const dispatch = useDispatch();
-    const { products, isLoading, isError } = useSelector((state) => state, shallowEqual);
+    const { products, isLoading, isError } = useSelector((state) => state.allProductsReducer, shallowEqual);
 
     useEffect(() => {
-        dispatch(getRequest(page, setlimit));
+        dispatch(getAllDataRequest(page, setlimit));
     }, [page]);
 
 

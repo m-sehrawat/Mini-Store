@@ -13,7 +13,7 @@ export const getDataError = () => {
     return { type: GET_DATA_ERROR };
 }
 
-export const getRequest = (page, setlimit) =>  async (dispatch) => {
+export const getAllDataRequest = (page, setlimit) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
         let res = await axios.get(`/products?page=${page}`);

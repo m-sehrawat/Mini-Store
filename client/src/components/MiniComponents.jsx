@@ -20,11 +20,11 @@ export const Section = ({ path, img, title }) => {
 
 export const ProductBox = ({ data }) => {
 
-    const { id, name, img, category, brand } = data;
+    const { _id, name, img, category, brand } = data;
 
     return (
         <>
-            <Link key={id} to={`/products/${id}`}>
+            <Link to={`/products/${_id}`}>
                 <Flex flexDirection={'column'} boxShadow='sm' overflow={'hidden'}>
                     <Box overflow={'hidden'}>
                         <Image className="zoom" src={img[0]} />

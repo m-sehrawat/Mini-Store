@@ -4,7 +4,7 @@ import App from './App';
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider as ReduxProvider } from 'react-redux';
-import { store } from './redux/store';
+import { store } from './redux/store/store';
 import axios from 'axios'
 
 axios.defaults.baseURL = "http://localhost:5500";
