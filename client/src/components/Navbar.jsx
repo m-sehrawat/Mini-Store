@@ -1,7 +1,17 @@
 import { Button, Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { setItem } from "../helpers/sessionStorage";
+import { setGender } from "../redux/allProducts/actions";
 
 export const Navbar = () => {
+
+    const dispatch = useDispatch();
+
+    const handleGenderChange = () => {
+        dispatch(setGender("allProducts"));
+        setItem("isGender", "allProducts");
+    }
 
     return (
         <>
@@ -14,7 +24,7 @@ export const Navbar = () => {
                 <Spacer />
                 <Center>
                     <Button bg={'transparent'} mr={'2px'} ><Link to={"/"}>Home</Link></Button>
-                    <Button bg={'transparent'} mr={'2px'} ><Link to={"/products"}>Products</Link></Button>
+                    <Button onClick={handleGenderChange} bg={'transparent'} mr={'2px'} ><Link to={"/products"}>Products</Link></Button>
                     <Button bg={'transparent'} mr={'2px'} ><Link to={"/"}>Login</Link></Button>
                 </Center>
             </Flex>

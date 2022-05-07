@@ -12,11 +12,12 @@ export const Products = () => {
     const [limit, setlimit] = useState(null);
 
     const dispatch = useDispatch();
-    const { products, isLoading, isError } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    const { products, isLoading, isError, isGender } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    console.log('isGender:', isGender)
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit));
-    }, [page]);
+        dispatch(getAllDataRequest(page, isGender, setlimit));
+    }, [page, isGender, setlimit]);
 
 
 
@@ -27,7 +28,9 @@ export const Products = () => {
     ) : (
         <>
             <Box maxW={1200} m={'20px auto'} px={'20px'}>
-                <Heading>All Products</Heading>
+                <Heading>{isGender === "men" ? "Men's Products"
+                    : isGender === "women" ? "Women's Products"
+                        : isGender === "kids" ? "Kids Products" : "All Products"}</Heading>
             </Box>
 
             <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={1200} m={'40px auto'}>

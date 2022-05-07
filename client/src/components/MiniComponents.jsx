@@ -11,7 +11,7 @@ export const Section = ({ img, title, gender }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const handleDisplayData = () => {
+    const handleGenderChange = () => {
         dispatch(setGender(gender));
         setItem("isGender", gender);
         navigate("/products");
@@ -20,7 +20,7 @@ export const Section = ({ img, title, gender }) => {
     return (
         <Box>
             <Box shadow={'lg'} borderRadius={'10%'} overflow={'hidden'}>
-                <Image onClick={handleDisplayData} className="zoom" src={img} />
+                <Image onClick={handleGenderChange} className="zoom" src={img} />
             </Box>
             <Text mt={5} align={'center'} fontSize={25}>{title}</Text>
         </Box>

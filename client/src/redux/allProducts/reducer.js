@@ -5,7 +5,7 @@ const initState = {
     isLoading: false,
     products: [],
     isError: false,
-    isGender: getItem("isGender") || false
+    isGender: getItem("isGender") || "allProducts"
 }
 
 export const allProductsReducer = (state = initState, { type, payload }) => {

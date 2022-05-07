@@ -17,10 +17,10 @@ export const setGender = (payload) => {
     return { type: SET_GENDER, payload };
 }
 
-export const getAllDataRequest = (page, setlimit) => async (dispatch) => {
+export const getAllDataRequest = (page, isGender, setlimit) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
-        let res = await axios.get(`/products?page=${page}`);
+        let res = await axios.get(`/products?page=${page}&gender=${isGender}`);
         let data = res.data.item;
         setlimit(res.data.totalPages);
         dispatch(getDataSuccess(data));

@@ -14,9 +14,9 @@ export const Router = () => {
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/category/:id" element={<ProductCategory />} />
+                {/* <Route path="/category/:id" element={<ProductCategory />} /> */}
                 <Route path="/products" element={<Products />} />
-                {/* <Route path="/products/:id" element={<ProductDetails />} /> */}
+                <Route path="/products/:id" element={<ProductDetails />} />
             </Routes>
 
             <Footer />
