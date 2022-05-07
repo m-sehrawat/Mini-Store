@@ -3,10 +3,10 @@ const express = require('express');
 const router = express.Router();
 
 const Product = require("../models/product.model");
-const { post, getAll } = require('./crud.controller');
 
-router.post("/", post(Product));
+const { getAllPaginated } = require('./crud.controller');
 
-router.get("/", getAll(Product));
+
+router.get("/", getAllPaginated(Product));
 
 module.exports = router;

@@ -1,4 +1,4 @@
-import { Grid, Box,  Flex, Button, HStack, Heading } from "@chakra-ui/react";
+import { Grid, Box,  Flex, Button, HStack, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getRequest } from "../redux/actions";
@@ -13,23 +13,8 @@ export const Products = () => {
     const { products, isLoading, isError } = useSelector((state) => state, shallowEqual);
 
     useEffect(() => {
-        dispatch(getRequest());
-    }, [page])
-
-    // const getAllProducts = async () => {
-
-    //     // fetch(`http://localhost:3004/data?_page=${page}&_limit=8`)
-    //     //     .then((res) => {
-    //     //         setlimit(Math.ceil(res.headers.get("X-Total-Count") / 8))
-    //     //         return res.json();
-    //     //     })
-    //     //     .then((res) => {
-    //     //         setProducts(res);
-    //     //     })
-    //     //     .catch((err) => {
-    //     //         console.log(err);
-    //     //     })
-    // }
+        dispatch(getRequest(page, setlimit));
+    }, [page]);
 
 
 
@@ -50,6 +35,7 @@ export const Products = () => {
             <Flex justify={'center'}>
                 <HStack gap={3}>
                     <Button onClick={() => { setPage((prev) => prev - 1) }} disabled={page === 1}>Prev</Button>
+                    <Text>{page}</Text>
                     <Button onClick={() => { setPage((prev) => prev + 1) }} disabled={page === limit}>Next</Button>
                 </HStack>
             </Flex>

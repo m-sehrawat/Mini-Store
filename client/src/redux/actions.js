@@ -13,12 +13,13 @@ export const getDataError = () => {
     return { type: GET_DATA_ERROR };
 }
 
-export const getRequest = () =>  async (dispatch) => {
+export const getRequest = (page, setlimit) =>  async (dispatch) => {
     try {
         dispatch(getDataLoading());
-        let res = await axios.get("/products");
-        res = res.data;
-        dispatch(getDataSuccess(res));
+        let res = await axios.get(`/products?page=${page}`);
+        let data = res.data.item;
+        setlimit(res.data.totalPages);
+        dispatch(getDataSuccess(data));
 
     } catch (err) {
         console.log(err);

@@ -21,5 +21,24 @@ const getAll = (model) => async (req, res) => {
     }
 };
 
+const getAllPaginated = (model) => async (req, res) => {
+    try {
+        const page = +req.query.page || 1;
 
-module.exports = { post, getAll };
+        const size = +req.query.limit || 6;
+
+        const skilValues = ((page - 1) * size);
+
+        const item = await model.find().skip(skilValues).limit(size).lean().exec();
+
+        const totalPages = Math.ceil(await model.find().countDocuments() / size);
+
+        return res.status(201).send({item, totalPages});
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
+
+module.exports = { post, getAll, getAllPaginated };
