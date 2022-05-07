@@ -1,10 +1,11 @@
-import { Grid, Box, Flex, Button, HStack, Heading, Text } from "@chakra-ui/react";
+import { Grid, Box, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getAllDataRequest } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
+import { SortMenu } from "./SortMenu";
 
 export const Products = () => {
 
@@ -27,11 +28,18 @@ export const Products = () => {
         <Error />
     ) : (
         <>
-            <Box maxW={1200} m={'20px auto'} px={'20px'}>
-                <Heading>{isGender === "men" ? "Men's Products"
-                    : isGender === "women" ? "Women's Products"
-                        : isGender === "kids" ? "Kids Products" : "All Products"}</Heading>
-            </Box>
+            <Flex justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
+                <Center>
+                    <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men's Products"
+                        : isGender === "women" ? "Women's Products"
+                            : isGender === "kids" ? "Kids Products" : "All Products"}
+                    </Heading>
+                </Center>
+
+                <Center>
+                    <SortMenu />
+                </Center>
+            </Flex>
 
             <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={1200} m={'40px auto'}>
 

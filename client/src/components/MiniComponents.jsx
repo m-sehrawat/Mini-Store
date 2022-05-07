@@ -19,7 +19,7 @@ export const Section = ({ img, title, gender }) => {
 
     return (
         <Box>
-            <Box shadow={'lg'} borderRadius={'10%'} overflow={'hidden'}>
+            <Box cursor={'pointer'} shadow={'lg'} borderRadius={'10%'} overflow={'hidden'}>
                 <Image onClick={handleGenderChange} className="zoom" src={img} />
             </Box>
             <Text mt={5} align={'center'} fontSize={25}>{title}</Text>

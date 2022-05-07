@@ -47,8 +47,8 @@ const getAllPaginated = (model) => async (req, res) => {
         } else {
             isGender = [{ gender: isGender }];
         }
-
-        const item = await model.find({$or: isGender}).skip(skilValues).limit(size).lean().exec();
+//.skip(skilValues).limit(size)
+        const item = await model.find({$or: isGender}).sort(null).skip(skilValues).limit(size).lean().exec();
 
         const totalPages = Math.ceil(await model.find({$or: isGender}).countDocuments() / size);
 
