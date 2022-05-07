@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER } from "./actionTypes";
 
 export const getDataLoading = () => {
     return { type: GET_DATA_LOADING };
@@ -11,6 +11,10 @@ export const getDataSuccess = (payload) => {
 
 export const getDataError = () => {
     return { type: GET_DATA_ERROR };
+}
+
+export const setGender = (payload) => {
+    return { type: SET_GENDER, payload };
 }
 
 export const getAllDataRequest = (page, setlimit) => async (dispatch) => {

@@ -1,15 +1,26 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { shortString } from "../helpers/extrafunctions";
+import { setItem } from "../helpers/sessionStorage";
+import { setGender } from "../redux/allProducts/actions";
 
 
-export const Section = ({ path, img, title }) => {
+export const Section = ({ img, title, gender }) => {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const handleDisplayData = () => {
+        dispatch(setGender(gender));
+        setItem("isGender", gender);
+        navigate("/products");
+    }
+
     return (
         <Box>
             <Box shadow={'lg'} borderRadius={'10%'} overflow={'hidden'}>
-                <Link to={path}>
-                    <Image className="zoom" src={img} />
-                </Link>
+                <Image onClick={handleDisplayData} className="zoom" src={img} />
             </Box>
             <Text mt={5} align={'center'} fontSize={25}>{title}</Text>
         </Box>
