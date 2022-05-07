@@ -1,43 +1,35 @@
-import { Grid, Box, Image, Text, Flex, Button, HStack, Heading } from "@chakra-ui/react";
-import axios from "axios";
+import { Grid, Box,  Flex, Button, HStack, Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { shortString } from "../helpers/extrafunctions";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { getRequest } from "../redux/actions";
 import { ProductBox } from "./MiniComponents";
 
 export const Products = () => {
 
-    const [products, setProducts] = useState([]);
     const [page, setPage] = useState(1);
     const [limit, setlimit] = useState(null);
 
+    const dispatch = useDispatch();
+    const { products, isLoading, isError } = useSelector((state) => state, shallowEqual);
+
     useEffect(() => {
-        getAllProducts();
+        dispatch(getRequest());
     }, [page])
 
-    const getAllProducts = async () => {
+    // const getAllProducts = async () => {
 
-        // fetch(`http://localhost:3004/data?_page=${page}&_limit=8`)
-        //     .then((res) => {
-        //         setlimit(Math.ceil(res.headers.get("X-Total-Count") / 8))
-        //         return res.json();
-        //     })
-        //     .then((res) => {
-        //         setProducts(res);
-        //     })
-        //     .catch((err) => {
-        //         console.log(err);
-        //     })
-
-        try {
-            let res = await axios.get("/products");
-            res = res.data;
-            console.log('res:', res)
-            setProducts(res);
-        } catch (err) {
-            console.log(err);
-        }
-    }
+    //     // fetch(`http://localhost:3004/data?_page=${page}&_limit=8`)
+    //     //     .then((res) => {
+    //     //         setlimit(Math.ceil(res.headers.get("X-Total-Count") / 8))
+    //     //         return res.json();
+    //     //     })
+    //     //     .then((res) => {
+    //     //         setProducts(res);
+    //     //     })
+    //     //     .catch((err) => {
+    //     //         console.log(err);
+    //     //     })
+    // }
 
 
 
@@ -47,10 +39,10 @@ export const Products = () => {
                 <Heading>All Products</Heading>
             </Box>
 
-            <Grid templateColumns={['repeat(1, 1fr)','repeat(2, 1fr)','repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={1200} m={'40px auto'}>
+            <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={1200} m={'40px auto'}>
 
                 {products.map((e) => (
-                    <ProductBox data={e} />
+                    <ProductBox key={e._id} data={e} />
                 ))}
 
             </Grid>
