@@ -1,7 +1,8 @@
 import { Grid, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getAllDataRequest } from "../redux/allProducts/actions";
+import { setItem } from "../helpers/sessionStorage";
+import { getAllDataRequest, setGender } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
@@ -14,8 +15,13 @@ export const Products = () => {
 
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, isSort } = useSelector((state) => state.allProductsReducer, shallowEqual);
-    console.log('isSort:', isSort)
     console.log('isGender:', isGender)
+
+
+    const handleGenderChange = ({ target: { value } }) => {
+        dispatch(setGender(value));
+        setItem("isGender", value);
+    }
 
     useEffect(() => {
         dispatch(getAllDataRequest(page, setlimit, isGender, isSort));
@@ -29,7 +35,7 @@ export const Products = () => {
         <Error />
     ) : (
         <>
-            <Flex justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
+            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
                 <Center>
                     <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men's Products"
                         : isGender === "women" ? "Women's Products"
@@ -37,7 +43,11 @@ export const Products = () => {
                     </Heading>
                 </Center>
 
-                <Center>
+                <Center gap={'10px'}>
+                    <Button onClick={handleGenderChange} value={'allProducts'} display={['none', 'none', 'inline-block']}>All Products</Button>
+                    <Button onClick={handleGenderChange} value={'men'}>Men</Button>
+                    <Button onClick={handleGenderChange} value={'women'}>Women</Button>
+                    <Button onClick={handleGenderChange} value={'kids'}>Kids</Button>
                     <SortMenu />
                 </Center>
             </Flex>
