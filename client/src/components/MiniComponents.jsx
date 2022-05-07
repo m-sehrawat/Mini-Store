@@ -1,7 +1,7 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { shortString } from "../helpers/extrafunctions";
+import { numberWithCommas, shortString } from "../helpers/extrafunctions";
 import { setItem } from "../helpers/sessionStorage";
 import { setGender } from "../redux/allProducts/actions";
 
@@ -31,7 +31,7 @@ export const Section = ({ img, title, gender }) => {
 
 export const ProductBox = ({ data }) => {
 
-    const { _id, name, img, category, brand } = data;
+    const { _id, name, img, category, brand, price, rating } = data;
 
     return (
         <>
@@ -44,6 +44,8 @@ export const ProductBox = ({ data }) => {
                         <Text fontSize={17} m={"10px 10px 2px"}>{shortString(name)}</Text>
                         <Text fontSize={14} color={'grey'} m={"2px 10px 2px"}>{category}</Text>
                         <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>{brand}</Text>
+                        <Text fontSize={20} color={'grey'} m={"1px 10px 2px"}>₹ {numberWithCommas(price)}</Text>
+                        <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>Rating: {rating}</Text>
                     </Box>
                 </Flex>
             </Link>

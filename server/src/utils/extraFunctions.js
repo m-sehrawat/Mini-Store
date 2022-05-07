@@ -1,8 +1,4 @@
-export const shortString = (text) => {
-    return text.slice(0, 20) + (text.length > 20 ? "..." : "");
-}
-
-export const sortValue = (str) => {
+const sortValue = (str) => {
     switch (str) {
         case "priceLH":
             return { price: 1 };
@@ -17,7 +13,10 @@ export const sortValue = (str) => {
     }
 }
 
-
-export const numberWithCommas = (x) => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const getGender = (isGender) => {
+    const x = [{ gender: 'men' }, { gender: 'kids' }, { gender: 'women' }];
+    const y = [{ gender: isGender }];
+    return isGender === "allProducts" ? x : y;
 }
+
+module.exports = { sortValue, getGender };

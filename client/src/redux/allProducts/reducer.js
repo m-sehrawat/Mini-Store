@@ -1,11 +1,12 @@
 import { getItem } from "../../helpers/sessionStorage";
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_SORT } from "./actionTypes";
 
 const initState = {
     isLoading: false,
     products: [],
     isError: false,
-    isGender: getItem("isGender") || "allProducts"
+    isGender: getItem("isGender") || "allProducts",
+    isSort: null
 }
 
 export const allProductsReducer = (state = initState, { type, payload }) => {
@@ -17,7 +18,9 @@ export const allProductsReducer = (state = initState, { type, payload }) => {
         case GET_DATA_ERROR:
             return { ...state, isLoading: false, isError: true };
         case SET_GENDER:
-            return { ...state, isGender: payload };
+            return { ...state, isGender: payload, isSort: null };
+        case SET_SORT:
+            return { ...state, isSort: payload };
         default:
             return state;
     }

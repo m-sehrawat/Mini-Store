@@ -1,3 +1,6 @@
+const { sortValue, getGender } = require('../utils/extraFunctions');
+
+
 const post = (model) => async (req, res) => {
     try {
         const item = await model.create(req.body);
@@ -8,7 +11,6 @@ const post = (model) => async (req, res) => {
         return res.status(500).json({ message: e.message, status: "Failed" });
     }
 };
-
 
 const getAll = (model) => async (req, res) => {
     try {
@@ -40,38 +42,13 @@ const getAllPaginated = (model) => async (req, res) => {
 
         const skilValues = ((page - 1) * size);
 
-        let isGender = req.query.gender;
+        const isGender = getGender(req.query.gender);
 
-        if (isGender === "allProducts") {
-            isGender =  [{ gender: 'men' }, { gender: 'kids' }, { gender: 'women' }];
-        } else {
-            isGender = [{ gender: isGender }];
-        }
-//.skip(skilValues).limit(size)
-        const item = await model.find({$or: isGender}).sort(null).skip(skilValues).limit(size).lean().exec();
+        const isSort = sortValue(req.query.sort);
 
-        const totalPages = Math.ceil(await model.find({$or: isGender}).countDocuments() / size);
+        const item = await model.find({ $or: isGender }).sort(isSort).skip(skilValues).limit(size).lean().exec();
 
-        return res.status(201).send({ item, totalPages });
-
-    } catch (e) {
-        return res.status(500).json({ message: e.message, status: "Failed" });
-    }
-};
-
-const getGender = (model) => async (req, res) => {
-    try {
-        const page = +req.query.page || 1;
-
-        const size = +req.query.limit || 6;
-
-        const isGender = req.query.gender;
-
-        const skilValues = ((page - 1) * size);
-
-        const item = await model.find({ gender: { $eq: isGender } }).skip(skilValues).limit(size).lean().exec();
-
-        const totalPages = Math.ceil(await model.find().countDocuments() / size);
+        const totalPages = Math.ceil(await model.find({ $or: isGender }).countDocuments() / size);
 
         return res.status(201).send({ item, totalPages });
 
@@ -81,7 +58,4 @@ const getGender = (model) => async (req, res) => {
 };
 
 
-
-
-
-module.exports = { post, getAll, getAllPaginated, getOne, getGender };
+module.exports = { post, getAll, getAllPaginated, getOne };

@@ -1,4 +1,4 @@
-import { Grid, Box, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
+import { Grid, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getAllDataRequest } from "../redux/allProducts/actions";
@@ -13,12 +13,13 @@ export const Products = () => {
     const [limit, setlimit] = useState(null);
 
     const dispatch = useDispatch();
-    const { products, isLoading, isError, isGender } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    const { products, isLoading, isError, isGender, isSort } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    console.log('isSort:', isSort)
     console.log('isGender:', isGender)
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, isGender, setlimit));
-    }, [page, isGender, setlimit]);
+        dispatch(getAllDataRequest(page, setlimit, isGender, isSort));
+    }, [page, isGender, setlimit, isSort, dispatch]);
 
 
 
