@@ -1,7 +1,9 @@
-import { Grid, Box,  Flex, Button, HStack, Heading, Text } from "@chakra-ui/react";
+import { Grid, Box, Flex, Button, HStack, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { getRequest } from "../redux/actions";
+import { Error } from "./Error";
+import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
 
 export const Products = () => {
@@ -18,7 +20,11 @@ export const Products = () => {
 
 
 
-    return (
+    return isLoading ? (
+        <Loading />
+    ) : isError ? (
+        <Error />
+    ) : (
         <>
             <Box maxW={1200} m={'20px auto'} px={'20px'}>
                 <Heading>All Products</Heading>
