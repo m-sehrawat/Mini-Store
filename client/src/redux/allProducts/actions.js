@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_SORT } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_GRID, SET_SORT } from "./actionTypes";
 
 export const getDataLoading = () => {
     return { type: GET_DATA_LOADING };
@@ -21,10 +21,14 @@ export const setSort = (payload) => {
     return { type: SET_SORT, payload };
 }
 
-export const getAllDataRequest = (page, setlimit, isGender, isSort) => async (dispatch) => {
+export const setGrid = (payload) => {
+    return { type: SET_GRID, payload };
+}
+
+export const getAllDataRequest = (page, setlimit, size, isGender, isSort) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
-        let res = await axios.get(`/products?page=${page}&gender=${isGender}&sort=${isSort}`);
+        let res = await axios.get(`/products?page=${page}&gender=${isGender}&sort=${isSort}&limit=${size}`);
         let data = res.data.item;
         setlimit(res.data.totalPages);
         dispatch(getDataSuccess(data));

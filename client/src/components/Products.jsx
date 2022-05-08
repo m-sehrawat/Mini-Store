@@ -8,6 +8,7 @@ import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
 import { SortMenu } from "./SortMenu";
 import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
+import { GridMenu } from "./GridMenu";
 
 export const Products = () => {
 
@@ -16,9 +17,7 @@ export const Products = () => {
     const [screen, setScreen] = useState(true)
 
     const dispatch = useDispatch();
-    const { products, isLoading, isError, isGender, isSort } = useSelector((state) => state.allProductsReducer, shallowEqual);
-    console.log('isGender:', isGender)
-
+    const { products, isLoading, isError, isGender, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
 
     const handleGenderChange = ({ target: { value } }) => {
         dispatch(setGender(value));
@@ -26,8 +25,8 @@ export const Products = () => {
     }
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit, isGender, isSort));
-    }, [page, isGender, setlimit, isSort, dispatch]);
+        dispatch(getAllDataRequest(page, setlimit, size, isGender, isSort));
+    }, [page, isGender, setlimit, isSort, dispatch, size]);
 
 
 
@@ -46,16 +45,17 @@ export const Products = () => {
                 </Center>
 
                 <Center gap={'10px'}>
-                    <Button onClick={() => { setScreen(!screen) }} leftIcon={ screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}>View</Button>
                     <Button onClick={handleGenderChange} value={'allProducts'} display={['none', 'none', 'inline-block']}>All Products</Button>
                     <Button onClick={handleGenderChange} value={'men'}>Men</Button>
                     <Button onClick={handleGenderChange} value={'women'}>Women</Button>
                     <Button onClick={handleGenderChange} value={'kids'}>Kids</Button>
+                    <Button onClick={() => { setScreen(!screen) }} leftIcon={screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}>View</Button>
+                    <GridMenu />
                     <SortMenu />
                 </Center>
             </Flex>
 
-            <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={screen ? '80%' : '98%'} m={'40px auto'}>
+            <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', `repeat(${grid}, 1fr)`]} gap={'20px'} p={'20px'} maxW={screen ? '80%' : '98%'} m={'40px auto'}>
 
                 {products.map((e) => (
                     <ProductBox key={e._id} data={e} />

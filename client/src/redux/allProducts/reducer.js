@@ -1,12 +1,15 @@
 import { getItem } from "../../helpers/sessionStorage";
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_SORT } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_GRID, SET_SORT } from "./actionTypes";
 
 const initState = {
     isLoading: false,
     products: [],
     isError: false,
     isGender: getItem("isGender") || "allProducts",
-    isSort: null
+    isSort: null,
+    grid: getItem("grid") || 3,
+    size: getItem("size") || 6,
+    page: 1
 }
 
 export const allProductsReducer = (state = initState, { type, payload }) => {
@@ -21,6 +24,8 @@ export const allProductsReducer = (state = initState, { type, payload }) => {
             return { ...state, isGender: payload, isSort: null };
         case SET_SORT:
             return { ...state, isSort: payload };
+        case SET_GRID:
+            return { ...state, grid: payload.grid, size: payload.size };
         default:
             return state;
     }
