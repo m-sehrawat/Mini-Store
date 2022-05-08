@@ -14,7 +14,8 @@ export const Products = () => {
 
     const [page, setPage] = useState(1);
     const [limit, setlimit] = useState(null);
-    const [screen, setScreen] = useState(true)
+    const [totalProducts, setTotalProducts] = useState(0);
+    const [screen, setScreen] = useState(true);
 
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
@@ -25,7 +26,7 @@ export const Products = () => {
     }
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit, size, isGender, isSort));
+        dispatch(getAllDataRequest(page, setlimit, size, isGender, isSort, setTotalProducts));
     }, [page, isGender, setlimit, isSort, dispatch, size]);
 
 
@@ -40,9 +41,9 @@ export const Products = () => {
                 <Center>
                     <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men"
                         : isGender === "women" ? "Women"
-                            : isGender === "kids" ? "Kids" : "All"}
+                            : isGender === "kids" ? "Kids" : "All"}  
                     </Heading>
-                    
+                   <Text fontSize={['18px','24px']}>({totalProducts})</Text>
                 </Center>
 
                 <Center gap={'10px'}>

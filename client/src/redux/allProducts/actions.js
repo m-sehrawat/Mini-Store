@@ -25,13 +25,14 @@ export const setGrid = (payload) => {
     return { type: SET_GRID, payload };
 }
 
-export const getAllDataRequest = (page, setlimit, size, isGender, isSort) => async (dispatch) => {
+export const getAllDataRequest = (page, setlimit, size, isGender, isSort, setTotalProducts) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
         let res = await axios.get(`/products?page=${page}&gender=${isGender}&sort=${isSort}&limit=${size}`);
-        let data = res.data.item;
-        setlimit(res.data.totalPages);
-        dispatch(getDataSuccess(data));
+        res = res.data;
+        setlimit(res.totalPages);
+        setTotalProducts(res.totalProducts);
+        dispatch(getDataSuccess(res.item));
 
     } catch (err) {
         console.log(err);

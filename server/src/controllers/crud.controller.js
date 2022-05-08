@@ -48,9 +48,11 @@ const getAllPaginated = (model) => async (req, res) => {
 
         const item = await model.find({ $or: isGender }).sort(isSort).skip(skilValues).limit(size).lean().exec();
 
-        const totalPages = Math.ceil(await model.find({ $or: isGender }).countDocuments() / size);
+        const totalProducts = await model.find({ $or: isGender }).countDocuments()
 
-        return res.status(201).send({ item, totalPages });
+        const totalPages = Math.ceil(totalProducts / size);
+
+        return res.status(201).send({ item, totalPages, totalProducts });
 
     } catch (e) {
         return res.status(500).json({ message: e.message, status: "Failed" });
