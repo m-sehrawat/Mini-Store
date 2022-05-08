@@ -36,12 +36,13 @@ export const Products = () => {
         <Error />
     ) : (
         <>
-            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={'80%'} m={'20px auto'} px={'20px'}>
+            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
                 <Center>
-                    <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men's Products"
-                        : isGender === "women" ? "Women's Products"
-                            : isGender === "kids" ? "Kids Products" : "All Products"}
+                    <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men"
+                        : isGender === "women" ? "Women"
+                            : isGender === "kids" ? "Kids" : "All"}
                     </Heading>
+                    
                 </Center>
 
                 <Center gap={'10px'}>
@@ -49,13 +50,17 @@ export const Products = () => {
                     <Button onClick={handleGenderChange} value={'men'}>Men</Button>
                     <Button onClick={handleGenderChange} value={'women'}>Women</Button>
                     <Button onClick={handleGenderChange} value={'kids'}>Kids</Button>
-                    <Button onClick={() => { setScreen(!screen) }} leftIcon={screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}>View</Button>
+                    <Button
+                        onClick={() => { setScreen(!screen) }}
+                        leftIcon={screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}
+                        display={['none', 'none','none', 'inline-block']}
+                    >View</Button>
                     <GridMenu />
                     <SortMenu />
                 </Center>
             </Flex>
 
-            <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', `repeat(${grid}, 1fr)`]} gap={'20px'} p={'20px'} maxW={screen ? '80%' : '98%'} m={'40px auto'}>
+            <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', `repeat(${grid}, 1fr)`]} gap={'20px'} p={'20px'} maxW={screen ?  1200 : '98%'} m={'40px auto'}>
 
                 {products.map((e) => (
                     <ProductBox key={e._id} data={e} />
