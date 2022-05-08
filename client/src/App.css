@@ -15,3 +15,6 @@ body {
   transform: scale(1.2);
 }
 
+.expand {
+  transition: all 0.5s ;
+}

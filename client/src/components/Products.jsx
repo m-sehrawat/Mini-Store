@@ -7,11 +7,13 @@ import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
 import { SortMenu } from "./SortMenu";
+import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
 
 export const Products = () => {
 
     const [page, setPage] = useState(1);
     const [limit, setlimit] = useState(null);
+    const [screen, setScreen] = useState(true)
 
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, isSort } = useSelector((state) => state.allProductsReducer, shallowEqual);
@@ -35,7 +37,7 @@ export const Products = () => {
         <Error />
     ) : (
         <>
-            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
+            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={'80%'} m={'20px auto'} px={'20px'}>
                 <Center>
                     <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men's Products"
                         : isGender === "women" ? "Women's Products"
@@ -44,6 +46,7 @@ export const Products = () => {
                 </Center>
 
                 <Center gap={'10px'}>
+                    <Button onClick={() => { setScreen(!screen) }} leftIcon={ screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}>View</Button>
                     <Button onClick={handleGenderChange} value={'allProducts'} display={['none', 'none', 'inline-block']}>All Products</Button>
                     <Button onClick={handleGenderChange} value={'men'}>Men</Button>
                     <Button onClick={handleGenderChange} value={'women'}>Women</Button>
@@ -52,7 +55,7 @@ export const Products = () => {
                 </Center>
             </Flex>
 
-            <Grid templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={1200} m={'40px auto'}>
+            <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(3, 1fr)']} gap={'20px'} p={'20px'} maxW={screen ? '80%' : '98%'} m={'40px auto'}>
 
                 {products.map((e) => (
                     <ProductBox key={e._id} data={e} />
