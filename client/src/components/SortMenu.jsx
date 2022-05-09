@@ -20,6 +20,8 @@ export const SortMenu = () => {
                     <MenuItem onClick={handleSort} value={'priceHL'}>Price: High - Low</MenuItem>
                     <MenuItem onClick={handleSort} value={'ratingLH'}>Rating: Low - High</MenuItem>
                     <MenuItem onClick={handleSort} value={'ratingHL'}>Rating: High - Low</MenuItem>
+                    <MenuItem onClick={handleSort} value={'nameAZ'}>Name: A - Z</MenuItem>
+                    <MenuItem onClick={handleSort} value={'nameZA'}>Name: Z - A</MenuItem>
                 </MenuList>
             </Menu>
         </>

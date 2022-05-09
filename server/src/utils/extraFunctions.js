@@ -8,6 +8,10 @@ const sortValue = (str) => {
             return { rating: 1 };
         case "ratingHL":
             return { rating: -1 };
+        case "nameAZ":
+            return { name: 1 };
+        case "nameZA":
+            return { name: -1 };
         default:
             return null;
     }
