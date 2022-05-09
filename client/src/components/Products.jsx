@@ -20,7 +20,6 @@ export const Products = () => {
 
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
-    console.log('products:', products.length)
 
     const handleGenderChange = ({ target: { value } }) => {
         dispatch(setGender(value));

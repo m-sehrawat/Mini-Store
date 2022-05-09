@@ -25,7 +25,7 @@ export const Navbar = () => {
                 <Center>
                     <Button bg={'transparent'} mr={'2px'} ><Link to={"/"}>Home</Link></Button>
                     <Button onClick={handleGenderChange} bg={'transparent'} mr={'2px'} ><Link to={"/products"}>Products</Link></Button>
-                    <Button bg={'transparent'} mr={'2px'} ><Link to={"/"}>Login</Link></Button>
+                    <Button bg={'transparent'} mr={'2px'} ><Link to={"/login"}>Login</Link></Button>
                 </Center>
             </Flex>
         </>
