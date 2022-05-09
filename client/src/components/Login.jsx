@@ -1,5 +1,6 @@
 import { Button, Container, Heading, Input, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Login = () => {
 
@@ -22,7 +23,7 @@ export const Login = () => {
                     <Input onChange={handleChange} name='email' value={login.email} type={'email'} placeholder='Email' />
                     <Input onChange={handleChange} name='password' value={login.password} type={'password'} placeholder='Password' />
                     <Button onClick={handleSubmit} w={'100%'}>Login</Button>
-                    <Text pt={'20px'} color={'gray.400'}>New user? Signup</Text>
+                    <Link to={'/signup'}><Text pt={'20px'} color={'gray.400'}>New user? Signup</Text></Link>
                 </VStack>
             </Container>
         </>
