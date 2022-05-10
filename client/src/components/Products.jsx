@@ -10,6 +10,7 @@ import { SortMenu } from "./SortMenu";
 import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
 import { GridMenu } from "./GridMenu";
 import { EmptyList } from "./EmptyList";
+import { GenderMenu } from "./GenderMenu";
 
 export const Products = () => {
 
@@ -48,16 +49,13 @@ export const Products = () => {
                 </Center>
 
                 <Center gap={'10px'}>
-                    <Button onClick={handleGenderChange} value={'allProducts'} display={['none', 'none', 'inline-block']}>All Products</Button>
-                    <Button onClick={handleGenderChange} value={'men'}>Men</Button>
-                    <Button onClick={handleGenderChange} value={'women'}>Women</Button>
-                    <Button onClick={handleGenderChange} value={'kids'}>Kids</Button>
                     <Button
                         onClick={() => { setScreen(!screen) }}
                         leftIcon={screen ? <RiFullscreenFill /> : <RiFullscreenExitLine />}
                         display={['none', 'none', 'none', 'inline-block']}
                     >View</Button>
                     <GridMenu />
+                    <GenderMenu />
                     <SortMenu />
                 </Center>
             </Flex>
