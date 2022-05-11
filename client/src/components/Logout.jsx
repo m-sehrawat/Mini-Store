@@ -16,7 +16,7 @@ export const Logout = ({ name }) => {
     return (
         <>
             <Menu>
-                <MenuButton as={Button} bg={'transparent'} rightIcon={<BsFillCaretDownFill />}>{name}</MenuButton>
+                <MenuButton mr={'2px'} as={Button} bg={'transparent'} rightIcon={<BsFillCaretDownFill />}>{name}</MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleLogout}>Logout</MenuItem>
                 </MenuList>

@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa'
 export const Footer = () => {
 
     return (
-        <Flex h={'160px'} bg={'#212121'} color={'white'} justify={'center'} mt={20}>
+        <Flex h={'160px'} bg={'#1a202c'} color={'white'} justify={'center'} mt={20}>
             <VStack>
                 <Text my={'26px'}>Made with ❤️ by Mohit Sehrawat</Text>
                 <HStack>

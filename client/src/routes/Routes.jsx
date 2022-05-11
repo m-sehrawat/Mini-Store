@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
 import { Footer } from "../components/Footer";
 import { Home } from "../components/Home";
@@ -13,13 +14,15 @@ export const Router = () => {
         <>
             <Navbar />
 
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductDetails />} />
-            </Routes>
+            <Box mt={'80px'}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/signup" element={<Signup />} />
+                    <Route path="/products" element={<Products />} />
+                    <Route path="/products/:id" element={<ProductDetails />} />
+                </Routes>
+            </Box>
 
             <Footer />
         </>

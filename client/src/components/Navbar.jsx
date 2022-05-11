@@ -1,12 +1,16 @@
-import { Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Spacer, useColorMode, Icon, Divider } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setItem } from "../helpers/sessionStorage";
 import { setGender } from "../redux/allProducts/actions";
 import { Logout } from "./Logout";
 import { NavButton } from "./MiniComponents";
+import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 
 export const Navbar = () => {
+
+    const { colorMode, toggleColorMode } = useColorMode();
+    console.log('colorMode:', colorMode)
 
     const dispatch = useDispatch();
     const { token, user } = useSelector((state) => state.authReducer, shallowEqual)
@@ -18,7 +22,7 @@ export const Navbar = () => {
 
     return (
         <>
-            <Flex h={14} bg={'#F5F5F5'} pr={'20px'}>
+            <Flex top={'0px'} bg={colorMode === "dark" ? '#1a202c' : 'white'} h={14} pr={'10px'} w={'100%'} shadow={'sm'} pos={'fixed'} zIndex={2}>
                 <Center>
                     <Link to={'/'}>
                         <Heading ml={5} display={['none', 'block']} fontSize={'20px'}>Mini Store</Heading>
@@ -29,6 +33,9 @@ export const Navbar = () => {
                     <NavButton name={'Home'} path={'/'} />
                     <NavButton onClick={handleGenderChange} name={'Products'} path={'/products'} />
                     {!!token ? <Logout name={user.name} /> : <NavButton name={'Login'} path={'/login'} />}
+                    <Button bg={'transparent'} onClick={toggleColorMode}>
+                        {colorMode === "light" ? <BsFillMoonFill /> : <BsFillSunFill />}
+                    </Button>
                 </Center>
             </Flex>
         </>
