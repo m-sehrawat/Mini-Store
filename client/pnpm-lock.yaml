@@ -16,7 +16,7 @@ specifiers:
   react-redux: ^8.0.1
   react-router-dom: ^6.2.1
   react-scripts: 5.0.0
-  redux: ^4.1.2
+  redux: 4.1.1
   redux-thunk: ^2.4.1
 
 dependencies:
@@ -32,11 +32,11 @@ dependencies:
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
-  react-redux: 8.0.1_ykxqnxanlq42xavzz22bjdrwni
+  react-redux: 8.0.1_4ccpsrusbicnqu4qvi2vmq6e2u
   react-router-dom: 6.3.0_sfoxds7t5ydpegc3knd667wn6m
   react-scripts: 5.0.0_react@17.0.2
-  redux: 4.2.0
-  redux-thunk: 2.4.1_redux@4.2.0
+  redux: 4.1.1
+  redux-thunk: 2.4.1_redux@4.1.1
 
 packages:
 
@@ -9149,7 +9149,7 @@ packages:
     resolution: {integrity: sha512-alTKsjEL0dKH/ru1Iyn7vliS2QRcBp9zZPGoWxUOvRGWPUYgjo+V01is7p04It6KhgrzhJGnIj9GgX8W4bZoCQ==}
     dev: false
 
-  /react-redux/8.0.1_ykxqnxanlq42xavzz22bjdrwni:
+  /react-redux/8.0.1_4ccpsrusbicnqu4qvi2vmq6e2u:
     resolution: {integrity: sha512-LMZMsPY4DYdZfLJgd7i79n5Kps5N9XVLCJJeWAaPYTV+Eah2zTuBjTxKtNEbjiyitbq80/eIkm55CYSLqAub3w==}
     peerDependencies:
       '@types/react': ^16.8 || ^17.0 || ^18.0
@@ -9177,7 +9177,7 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       react-is: 18.1.0
-      redux: 4.2.0
+      redux: 4.1.1
       use-sync-external-store: 1.1.0_react@17.0.2
     dev: false
 
@@ -9413,16 +9413,16 @@ packages:
       strip-indent: 3.0.0
     dev: false
 
-  /redux-thunk/2.4.1_redux@4.2.0:
+  /redux-thunk/2.4.1_redux@4.1.1:
     resolution: {integrity: sha512-OOYGNY5Jy2TWvTL1KgAlVy6dcx3siPJ1wTq741EPyUKfn6W6nChdICjZwCd0p8AZBs5kWpZlbkXW2nE/zjUa+Q==}
     peerDependencies:
       redux: ^4
     dependencies:
-      redux: 4.2.0
+      redux: 4.1.1
     dev: false
 
-  /redux/4.2.0:
-    resolution: {integrity: sha512-oSBmcKKIuIR4ME29/AeNUnl5L+hvBq7OaJWzaptTQJAntaPvxIJqfnjbaEiCzzaIz+XmVILfqAM3Ob0aXLPfjA==}
+  /redux/4.1.1:
+    resolution: {integrity: sha512-hZQZdDEM25UY2P493kPYuKqviVwZ58lEmGQNeQ+gXa+U0gYPUBf7NKYazbe3m+bs/DzM/ahN12DbF+NG8i0CWw==}
     dependencies:
       '@babel/runtime': 7.17.9
     dev: false

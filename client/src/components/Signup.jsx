@@ -1,10 +1,20 @@
 import { Button, Container, Heading, Input, Select, Text, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { signupRequest } from "../redux/auth/actions";
+import { Loading } from "./Loading";
+import { Error } from "./Error";
 
 export const Signup = () => {
     const init = { name: "", mobile: "", email: "", gender: "", password: "" };
     const [signup, setSignup] = useState(init);
+    const dispatch = useDispatch();
+    const { isLoading, isError, token, user } = useSelector((state) => state.authReducer, shallowEqual)
+    console.log('isLoading:', isLoading)
+    console.log('isError:', isError)
+    console.log('token:', token)
+    console.table('user:', user)
 
 
     const handleChange = ({ target: { name, value } }) => {
@@ -12,10 +22,15 @@ export const Signup = () => {
     }
 
     const handleSubmit = () => {
-        console.log(signup);
+        dispatch(signupRequest(signup));
+        setSignup(init);
     }
 
-    return (
+    return isLoading ? (
+        <Loading />
+    ) : isError ? (
+        <Error />
+    ) : (
         <>
             <Container border={'1px solid #edf2f7'} mt={['60px', '20px']} borderRadius={'2%'} p={['10px', '20px', '30px']} maxW={'400px'}>
                 <VStack gap={'10px'}>
