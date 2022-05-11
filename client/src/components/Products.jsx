@@ -1,8 +1,7 @@
 import { Grid, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { setItem } from "../helpers/sessionStorage";
-import { getAllDataRequest, setGender } from "../redux/allProducts/actions";
+import { getAllDataRequest } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";

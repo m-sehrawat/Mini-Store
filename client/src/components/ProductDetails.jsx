@@ -1,10 +1,11 @@
-import { Box, Button, Image, Text, Flex, Grid } from "@chakra-ui/react";
+import { Box, Button, Image, Text, Flex, Grid, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getOneDataRequest } from "../redux/oneProduct/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
+import { BsCartPlusFill, BsHeartFill } from "react-icons/bs";
 
 export const ProductDetails = () => {
 
@@ -18,7 +19,7 @@ export const ProductDetails = () => {
 
     useEffect(() => {
         dispatch(getOneDataRequest(id));
-    }, [id]);
+    }, [id, dispatch]);
 
 
     return isLoading ? (
@@ -50,6 +51,10 @@ export const ProductDetails = () => {
                 <Text my={2} fontSize={20} color={'grey'}>Rating: {rating}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Sizes: {size.join(", ")}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Gender: {gender === 'men' ? 'Men' : 'Women'}</Text>
+                <Flex mr={['0px', '0px', '20px']} gap={'10px'} flexDirection={'column'}>
+                    <Button leftIcon={<BsCartPlusFill />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Cart</Button>
+                    <Button leftIcon={<BsHeartFill />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Favourite</Button>
+                </Flex>
             </Box>
         </Grid>
     );
