@@ -1,28 +1,38 @@
-import { GET_TOKEN_ERROR, GET_TOKEN_LOADING, GET_TOKEN_SUCCESS } from "./actionTypes";
+import { GET_TOKEN_SUCCESS } from "./actionTypes";
 import axios from 'axios';
 import { setItem } from "../../helpers/sessionStorage";
+import { notify } from "../../helpers/extrafunctions";
 
-export const getTokenLoading = () => {
-    return { type: GET_TOKEN_LOADING };
-};
 
 export const getTokenSuccess = (payload) => {
     return { type: GET_TOKEN_SUCCESS, payload };
 };
 
-export const getTokenError = () => {
-    return { type: GET_TOKEN_ERROR };
-};
-
-export const signupRequest = (payload) => async (dispatch) => {
+export const signupRequest = (payload, toast, navigate) => async (dispatch) => {
     try {
-        dispatch(getTokenLoading());
         let res = await axios.post("/signup", payload);
         dispatch(getTokenSuccess(res.data));
         setItem("token", res.data.token);
-        setItem("user", {...res.data.user, password: ""});
+        setItem("user", res.data.user);
+        notify(toast, 'Account Created Successfully', 'success');
+        navigate("/");
     } catch (err) {
         console.log(err);
-        dispatch(getTokenError());
+        notify(toast, err.response.data.message, 'error');
+    }
+}
+
+export const loginRequest = (payload, toast, navigate) => async (dispatch) => {
+    try {
+        let res = await axios.post("/login", payload);
+        console.log('res:', res.data)
+        dispatch(getTokenSuccess(res.data));
+        setItem("token", res.data.token);
+        setItem("user", res.data.user);
+        notify(toast, 'Login Successfully', 'success');
+        navigate("/");
+    } catch (err) {
+        console.log(err);
+        notify(toast, err.response.data.message, 'error');
     }
 }

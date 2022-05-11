@@ -1,10 +1,15 @@
-import { Button, Container, Heading, Input, Text, VStack } from "@chakra-ui/react";
+import { Button, Container, Heading, Input, Text, useToast, VStack } from "@chakra-ui/react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { loginRequest } from "../redux/auth/actions";
 
 export const Login = () => {
 
     const [login, setLogin] = useState({ email: "", password: "" });
+    const dispatch = useDispatch();
+    const toast = useToast();
+    const navigate = useNavigate();
 
 
     const handleChange = ({ target: { name, value } }) => {
@@ -13,6 +18,7 @@ export const Login = () => {
 
     const handleSubmit = () => {
         console.log(login);
+        dispatch(loginRequest(login, toast, navigate))
     }
 
     return (

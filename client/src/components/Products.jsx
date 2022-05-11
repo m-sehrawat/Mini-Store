@@ -22,11 +22,6 @@ export const Products = () => {
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
 
-    const handleGenderChange = ({ target: { value } }) => {
-        dispatch(setGender(value));
-        setItem("isGender", value);
-    }
-
     useEffect(() => {
         dispatch(getAllDataRequest(page, setlimit, size, isGender, isSort, setTotalProducts));
     }, [page, isGender, setlimit, isSort, dispatch, size]);
