@@ -8,7 +8,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b6f31e854c3748489c87ac6901450277_9366/AEROREADY_Designed_To_Move_Sport_Tee_Red_GM2108_01_laydown.jpg"
             ],
             "name": "AEROREADY DESIGNED TO MOVE SPORT TEE",
-            "category": "Men Training",
+            "description": "Men Training",
+            "category": "cloths",
             "price": 599,
             "size": [
                 32,
@@ -29,7 +30,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/dcb67a193f6f4c8a8654ac1e00f73739_9366/Runner_Tee_Blue_GC6719_25_model.jpg"
             ],
             "name": "RUNNER TEE",
-            "category": "Men Training",
+            "description": "Men Training",
+            "category": "cloths",
             "price": 1499,
             "size": [
                 32,
@@ -50,7 +52,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/1b8be63adf174d03ad2bac86014bc444_9366/Tennis_Freelift_Printed_Primeblue_Tee_Yellow_GQ2221_41_detail.jpg"
             ],
             "name": "TENNIS FREELIFT PRINTED PRIMEBLUE TEE",
-            "category": "Men Tennis",
+            "description": "Men Tennis",
+            "category": "cloths",
             "price": 2000,
             "size": [
                 32,
@@ -71,7 +74,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b5714d87ab924d22a2edac9f01075477_9366/FC_Bayern_Tee_Grey_GK8631_01_laydown.jpg"
             ],
             "name": "FC BAYERN TEE",
-            "category": "Men Tennis",
+            "description": "Men Tennis",
+            "category": "cloths",
             "price": 2000,
             "size": [
                 32,
@@ -92,7 +96,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/997e09da18e842d3acaaac1d000ab0c7_9366/High-Support_Bra_Black_GL0589_01_laydown.jpg"
             ],
             "name": "HIGH-SUPPORT BRA",
-            "category": "Women Originals",
+            "description": "Women Originals",
+            "category": "cloths",
             "price": 2500,
             "size": [
                 32,
@@ -113,7 +118,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/09f09fd23fad473eaa98ac660141bfdc_9366/Ultimate_Bra_Black_GP6780_41_detail.jpg"
             ],
             "name": "ULTIMATE BRA",
-            "category": "Women Originals",
+            "description": "Women Originals",
+            "category": "cloths",
             "price": 4299,
             "size": [
                 32,
@@ -134,7 +140,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/585a2e3cc2204e57ba66acef0052ea8f_9366/Believe_This_HEAT.RDY_Bra_Black_H11344_01_laydown.jpg"
             ],
             "name": "BELIEVE THIS HEAT.RDY BRA",
-            "category": "Women Training",
+            "description": "Women Training",
+            "category": "cloths",
             "price": 3599,
             "size": [
                 32,
@@ -155,7 +162,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/bc1d1eec28424ac9ba19ac5b0184cdce_9366/Ultimate_Bra_Blue_GP6781_25_model.jpg"
             ],
             "name": "ULTIMATE BRA UY",
-            "category": "Women Training",
+            "description": "Women Training",
+            "category": "cloths",
             "price": 2599,
             "size": [
                 32,
@@ -176,7 +184,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c6d1f481a48b4b069971ad9b00c0db61_9366/Unifactor_Shoes_Blue_EW2427_41_detail.jpg"
             ],
             "name": "UNIFACTOR SHOES",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 1650,
             "size": [
                 7,
@@ -197,7 +206,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/a35aef5159be42748abcacee00db4226_9366/ZX_2K_Boost_2.0_Shoes_Blue_GZ7733_05_standard.jpg"
             ],
             "name": "ZX 2K BOOST 2.0 SHOES",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 13999,
             "size": [
                 7,
@@ -218,7 +228,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/81dc8e64d8d049fa9569a9810134b763_9366/Advantage_Shoes_White_F36424_05_standard.jpg"
             ],
             "name": "ADVANTAGE SHOES",
-            "category": "Men Sport Inspired",
+            "description": "Men Sport Inspired",
+            "category": "cloths",
             "price": 3000,
             "size": [
                 7,
@@ -239,7 +250,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/0ecd6478d4454de1bdabab9700a39e94_9366/Lite_Racer_CLN_Shoes_Green_FW1335_04_standard.jpg"
             ],
             "name": "LITE RACER CLN SHOES",
-            "category": "Men Sport Inspired",
+            "description": "Men Sport Inspired",
+            "category": "cloths",
             "price": 2500,
             "size": [
                 7,
@@ -260,7 +272,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c1e74e238b384d25a969ab6501019831_9366/Marathon_20_Two-in-One_Shorts_Black_FS9845_25_model.jpg"
             ],
             "name": "MARATHON 20 TWO-IN-ONE SHORTS",
-            "category": "Women Running",
+            "description": "Women Running",
+            "category": "cloths",
             "price": 1499,
             "size": [
                 28,
@@ -281,7 +294,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/ffd97827a77a4afeafb4ac84015377e9_9366/adidas_Sportswear_Allover_Print_Leggings_Black_GP9644_01_laydown.jpg"
             ],
             "name": "UZX ADIDAS SPORTSWEAR ALLOVER PRINT LEGGINGS",
-            "category": "Women Running",
+            "description": "Women Running",
+            "category": "cloths",
             "price": 1299,
             "size": [
                 28,
@@ -302,7 +316,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c45d4751b70c49828badac7d0106d29c_9366/Own_The_Run_Celebration_Running_Long_Tights_Pink_GK5068_01_laydown.jpg"
             ],
             "name": "ADIDAS SPORTSWEAR ALLOVER PRINT LEGGINGS",
-            "category": "Women Running",
+            "description": "Women Running",
+            "category": "cloths",
             "price": 1299,
             "size": [
                 28,
@@ -323,7 +338,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/8cc22b63dd004d33b672ac630179e0f3_9366/Believe_This_7-8_Tights_Multicolor_GU1313_01_laydown.jpg"
             ],
             "name": "BELIEVE THIS 7/8 TIGHTS",
-            "category": "Women Training",
+            "description": "Women Training",
+            "category": "cloths",
             "price": 2000,
             "size": [
                 28,
@@ -344,7 +360,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/6746f16bbf384fd3b0e4aba20126cd92_9366/ASWEEMOVE_Shoes_Black_FW1676_04_standard.jpg"
             ],
             "name": "ASWEEMOVE SHOES",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 2800,
             "size": [
                 9,
@@ -365,7 +382,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/3a96f31f570c4ea0ac5babdb00c4185e_9366/ASWEEMOVE_Shoes_Blue_FW1674_04_standard.jpg"
             ],
             "name": "ASWEMOVE SHOES",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 2800,
             "size": [
                 6,
@@ -389,7 +407,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/b9da2ad0542d40d798f6ad9c00631e9a_9366/Unifactor_Shoes_Grey_EW2424_05_standard.jpg"
             ],
             "name": "UNIFACTOR SHOES UZ",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 1650,
             "size": [
                 8,
@@ -409,7 +428,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/34a38edcbf284a7c9c52ad8500e52aa1_9366/Kollide_Shoes_Grey_EW2516_05_standard.jpg"
             ],
             "name": "KOLLIDE SHOES",
-            "category": "Men Running",
+            "description": "Men Running",
+            "category": "cloths",
             "price": 2400,
             "size": [
                 6,
@@ -430,7 +450,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/cbb4073f4c2442b0b9f2ad2c0014134a_9366/Adicolor_Classics_Primeblue_SST_Track_Pants_Red_H06713_01_laydown.jpg"
             ],
             "name": "ADICOLOR CLASSICS PRIMEBLUE SST TRACK PANTS",
-            "category": "Men Originals",
+            "description": "Men Originals",
+            "category": "cloths",
             "price": 5599,
             "size": [
                 32,
@@ -451,7 +472,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/8ab5375db758441688e3ac5c000cbdd1_9366/AEROREADY_3-Stripes_Flow_Motion_Pants_Blue_GL1682_01_laydown.jpg"
             ],
             "name": "AEROREADY 3-STRIPES FLOW MOTION PANTS",
-            "category": "Men Originals",
+            "description": "Men Originals",
+            "category": "cloths",
             "price": 3999,
             "size": [
                 32,
@@ -472,7 +494,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d9fbfbd5489a416f9d2dacc300c542e5_9366/adidas_SPRT_Supersport_Woven_Track_Shorts_Black_GN2467_01_laydown.jpg"
             ],
             "name": "ADIDAS SPRT SUPERSPORT WOVEN TRACK SHORTS",
-            "category": "Men Originals",
+            "description": "Men Originals",
+            "category": "cloths",
             "price": 2500,
             "size": [
                 32,
@@ -493,7 +516,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/423049f64de74e23ac4aac370137398f_9366/Adicolor_Sweat_Pants_Pink_GP1044_01_laydown.jpg"
             ],
             "name": "ADICOLOR SWEAT PANTS",
-            "category": "Men Originals",
+            "description": "Men Originals",
+            "category": "cloths",
             "price": 3000,
             "size": [
                 32,
@@ -514,7 +538,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/c357f22ec79441149706ab4a00a12b19_9366/Ultimashow_Shoes_Black_FX3636_04_standard.jpg"
             ],
             "name": "ULTIMASHOW SHOES",
-            "category": "Women Running",
+            "description": "Women Running",
+            "category": "cloths",
             "price": 2999,
             "size": [
                 5,
@@ -535,7 +560,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/40f98c319f7849eeb1c7ac84012b0cfa_9366/Ultraboost_5.0_DNA_Shoes_White_GW5125_04_standard.jpg"
             ],
             "name": "ULTRABOOST 5.0 DNA SHOES",
-            "category": "Women Running",
+            "description": "Women Running",
+            "category": "cloths",
             "price": 16999,
             "size": [
                 6,
@@ -556,7 +582,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/ddc511cd28b04950bb94ad3300fc9b96_9366/X_Speedflow.4_Indoor_Boots_Red_FY3346_05_standard.jpg"
             ],
             "name": "X SPEEDFLOW.4 INDOOR BOOTS",
-            "category": "Football",
+            "description": "Football",
+            "category": "cloths",
             "price": 4999,
             "size": [
                 7,
@@ -577,7 +604,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/3e1eda8b897f4d99ab49aba301263a66_9366/Superstar_Shoes_White_FW2502_04_standard.jpg"
             ],
             "name": "SUPERSTAR SHOES",
-            "category": "Women Originals",
+            "description": "Women Originals",
+            "category": "cloths",
             "price": 4500,
             "size": [
                 6,
@@ -598,7 +626,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/9509ebbee5d043879d33aafc0100594e_9366/Predator_20_Training_Gloves_Black_FH7294_43_detail.jpg"
             ],
             "name": "PREDATOR 20 TRAINING GLOVES",
-            "category": "Football",
+            "description": "Football",
+            "category": "cloths",
             "price": 600,
             "size": [
                 4,
@@ -619,7 +648,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/1e427fc2d64243da820fac8900c6124f_9366/X_Training_Goalkeeper_Gloves_Yellow_GK3513_42_detail.jpg"
             ],
             "name": "X TRAINING GOALKEEPER GLOVES",
-            "category": "Football",
+            "description": "Football",
+            "category": "cloths",
             "price": 1299,
             "size": [
                 4,
@@ -640,7 +670,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/f1112ee1fd0446c4aabaaa53012cb31b_9366/Backpack_Blue_ED8646_05_hover_standard.jpg"
             ],
             "name": "BACKPACK",
-            "category": "Kids Unisex Training",
+            "description": "Kids Unisex Training",
+            "category": "cloths",
             "price": 1299,
             "size": [
                 4,
@@ -661,7 +692,8 @@
                 "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/987210f10e464b399209abb201200390_9366/Face_Covers_3-Pack_M-L_Black_H08837_01_laydown.jpg"
             ],
             "name": "FACE COVERS 3-PACK M/L",
-            "category": "Men Sport Inspired",
+            "description": "Men Sport Inspired",
+            "category": "cloths",
             "price": 999,
             "size": [
                 7,

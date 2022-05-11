@@ -10,7 +10,12 @@ app.use(cors());
 
 const productController = require("./controllers/product.controller");
 
+const { Signup, Login } = require('./controllers/auth.controller');
+
 app.use("/products", productController);
 
+app.post("/signup", Signup);
+
+app.post("/login", Login);
 
 module.exports = app;
