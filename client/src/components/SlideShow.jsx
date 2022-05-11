@@ -11,9 +11,13 @@ export const SlideShow = () => {
     }
 
     useEffect(() => {
-        setInterval(() => {
+        let timerId = setInterval(() => {
             setIndex((prev) => prev === 5 ? 0 : prev + 1);
         }, 6000);
+
+        return () => {
+            clearInterval(timerId);
+        }
     }, []);
 
     return (
