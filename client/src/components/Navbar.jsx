@@ -1,12 +1,15 @@
-import { Button, Center, Flex, Heading, Spacer } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { Center, Flex, Heading, Spacer } from "@chakra-ui/react";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setItem } from "../helpers/sessionStorage";
 import { setGender } from "../redux/allProducts/actions";
+import { Logout } from "./Logout";
+import { NavButton } from "./MiniComponents";
 
 export const Navbar = () => {
 
     const dispatch = useDispatch();
+    const { token, user } = useSelector((state) => state.authReducer, shallowEqual)
 
     const handleGenderChange = () => {
         dispatch(setGender("allProducts"));
@@ -15,7 +18,7 @@ export const Navbar = () => {
 
     return (
         <>
-            <Flex h={14} bg={'#F5F5F5'}>
+            <Flex h={14} bg={'#F5F5F5'} pr={'20px'}>
                 <Center>
                     <Link to={'/'}>
                         <Heading ml={5} display={['none', 'block']} fontSize={'20px'}>Mini Store</Heading>
@@ -23,9 +26,9 @@ export const Navbar = () => {
                 </Center>
                 <Spacer />
                 <Center>
-                    <Button bg={'transparent'} mr={'2px'} ><Link to={"/"}>Home</Link></Button>
-                    <Button onClick={handleGenderChange} bg={'transparent'} mr={'2px'} ><Link to={"/products"}>Products</Link></Button>
-                    <Button bg={'transparent'} mr={'2px'} ><Link to={"/login"}>Login</Link></Button>
+                    <NavButton name={'Home'} path={'/'} />
+                    <NavButton onClick={handleGenderChange} name={'Products'} path={'/products'} />
+                    {!!token ? <Logout name={user.name} /> : <NavButton name={'Login'} path={'/login'} />}
                 </Center>
             </Flex>
         </>

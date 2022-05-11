@@ -13,12 +13,11 @@ export const Login = () => {
 
 
     const handleChange = ({ target: { name, value } }) => {
-        setLogin({ ...login, [name]: value })
+        setLogin({ ...login, [name]: value });
     }
 
     const handleSubmit = () => {
-        console.log(login);
-        dispatch(loginRequest(login, toast, navigate))
+        dispatch(loginRequest(login, toast, navigate));
     }
 
     return (
