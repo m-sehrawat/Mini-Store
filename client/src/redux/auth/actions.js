@@ -19,7 +19,7 @@ export const signupRequest = (payload, toast, navigate) => async (dispatch) => {
         setItemToLocal("token", res.data.token);
         setItemToLocal("user", res.data.user);
         notify(toast, 'Account Created Successfully', 'success');
-        navigate("/");
+        navigate(-1);
     } catch (err) {
         console.log(err);
         notify(toast, err.response.data.message, 'error');
@@ -33,7 +33,7 @@ export const loginRequest = (payload, toast, navigate) => async (dispatch) => {
         setItemToLocal("token", res.data.token);
         setItemToLocal("user", res.data.user);
         notify(toast, 'Login Successfully', 'success');
-        navigate("/");
+        navigate(-1);
     } catch (err) {
         console.log("here:",err);
         notify(toast, err.response.data.message, 'error');

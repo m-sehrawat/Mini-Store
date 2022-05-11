@@ -9,10 +9,12 @@ app.use(express.json());
 app.use(cors());
 
 const productController = require("./controllers/product.controller");
-
+const favouriteController = require("./controllers/favourite.controller");
 const { Signup, Login } = require('./controllers/auth.controller');
 
 app.use("/products", productController);
+
+app.use("/favourite", favouriteController);
 
 app.post("/signup", Signup);
 

@@ -1,4 +1,4 @@
-import { Button, Center, Flex, Heading, Spacer, useColorMode, Icon, Divider } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Spacer, useColorMode } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setItem } from "../helpers/sessionStorage";
@@ -10,7 +10,6 @@ import { BsFillSunFill, BsFillMoonFill } from 'react-icons/bs'
 export const Navbar = () => {
 
     const { colorMode, toggleColorMode } = useColorMode();
-    console.log('colorMode:', colorMode)
 
     const dispatch = useDispatch();
     const { token, user } = useSelector((state) => state.authReducer, shallowEqual)
