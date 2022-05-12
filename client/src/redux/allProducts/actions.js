@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_GENDER, SET_GRID, SET_SORT } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, SET_CATEGORY, SET_GENDER, SET_GRID, SET_SORT } from "./actionTypes";
 
 export const getDataLoading = () => {
     return { type: GET_DATA_LOADING };
@@ -17,6 +17,10 @@ export const setGender = (payload) => {
     return { type: SET_GENDER, payload };
 }
 
+export const setCategory = (payload) => {
+    return { type: SET_CATEGORY, payload };
+}
+
 export const setSort = (payload) => {
     return { type: SET_SORT, payload };
 }
@@ -25,10 +29,10 @@ export const setGrid = (payload) => {
     return { type: SET_GRID, payload };
 }
 
-export const getAllDataRequest = (page, setlimit, size, isGender, isSort, setTotalProducts) => async (dispatch) => {
+export const getAllDataRequest = (page, setlimit, size, isGender, category, isSort, setTotalProducts) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
-        let res = await axios.get(`/products?page=${page}&gender=${isGender}&sort=${isSort}&limit=${size}`);
+        let res = await axios.get(`/products?page=${page}&gender=${isGender}&category=${category}&sort=${isSort}&limit=${size}`);
         res = res.data;
         setlimit(res.totalPages);
         setTotalProducts(res.totalProducts);

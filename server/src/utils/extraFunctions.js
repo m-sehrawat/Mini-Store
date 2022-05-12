@@ -23,4 +23,10 @@ const getGender = (isGender) => {
     return isGender === "allProducts" ? x : y;
 }
 
-module.exports = { sortValue, getGender };
+const getCategory = (category) => {
+    const x = [{ category: 'cloths' }, { category: 'shoes' }];
+    const y = [{ category: category }];
+    return category === "allCategory" ? x : y;
+}
+
+module.exports = { sortValue, getGender, getCategory };

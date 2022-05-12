@@ -1,4 +1,4 @@
-const { sortValue, getGender } = require('../utils/extraFunctions');
+const { sortValue, getGender, getCategory } = require('../utils/extraFunctions');
 
 
 const postFavourite = (model) => async (req, res) => {
@@ -44,11 +44,13 @@ const getAllPaginated = (model) => async (req, res) => {
 
         const isGender = getGender(req.query.gender);
 
+        const category = getCategory(req.query.category);
+
         const isSort = sortValue(req.query.sort);
 
-        const item = await model.find({ $or: isGender }).sort(isSort).skip(skilValues).limit(size).lean().exec();
+        const item = await model.find({ $and: [{ $or: isGender }, { $or: category }] }).sort(isSort).skip(skilValues).limit(size).lean().exec();
 
-        const totalProducts = await model.find({ $or: isGender }).countDocuments()
+        const totalProducts = await model.find({ $and: [{ $or: isGender }, { $or: category }] }).countDocuments()
 
         const totalPages = Math.ceil(totalProducts / size);
 

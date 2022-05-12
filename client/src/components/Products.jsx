@@ -10,6 +10,7 @@ import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
 import { GridMenu } from "./GridMenu";
 import { EmptyList } from "./EmptyList";
 import { GenderMenu } from "./GenderMenu";
+import { CategoryMenu } from "./CategoryMenu";
 
 export const Products = () => {
 
@@ -19,11 +20,11 @@ export const Products = () => {
     const [screen, setScreen] = useState(true);
 
     const dispatch = useDispatch();
-    const { products, isLoading, isError, isGender, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    const { products, isLoading, isError, isGender, category, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit, size, isGender, isSort, setTotalProducts));
-    }, [page, isGender, setlimit, isSort, dispatch, size]);
+        dispatch(getAllDataRequest(page, setlimit, size, isGender,category, isSort, setTotalProducts));
+    }, [page, isGender, setlimit, isSort, dispatch, size, category]);
 
 
 
@@ -49,6 +50,7 @@ export const Products = () => {
                         display={['none', 'none', 'none', 'inline-block']}
                     >View</Button>
                     <GridMenu />
+                    <CategoryMenu />
                     <GenderMenu />
                     <SortMenu />
                 </Center>
