@@ -1,5 +1,6 @@
 import { Box } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
+import { Cart } from "../components/Cart";
 import { Favourite } from "../components/Favourite";
 import { Footer } from "../components/Footer";
 import { Home } from "../components/Home";
@@ -23,6 +24,7 @@ export const Router = () => {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDetails />} />
+                    <Route path="/cart" element={<Cart />} />
                     <Route path="/favourite" element={<Private><Favourite /></Private>} />
                 </Routes>
             </Box>

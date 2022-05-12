@@ -25,6 +25,7 @@ export const notify = (toast, title, status, description) => {
         status,
         description,
         duration: 3000,
+        variant: "top-accent",
         isClosable: true,
     });
 };

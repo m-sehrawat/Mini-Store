@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Image, Text } from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { numberWithCommas, shortString } from "../helpers/extrafunctions";
@@ -57,3 +57,13 @@ export const ProductBox = ({ data }) => {
 export const NavButton = ({ path, name, onClick }) => {
     return <Button onClick={onClick} bg={'transparent'} mr={'2px'} ><Link to={path}>{name}</Link></Button>;
 }
+
+
+export const BigIcon = ({icon}) => {
+
+    return (
+        <>
+            <Icon w={'26px'} h={'26px'} as={icon} />
+        </>
+    );
+};
