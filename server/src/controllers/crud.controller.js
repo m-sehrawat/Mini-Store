@@ -59,5 +59,16 @@ const getAllPaginated = (model) => async (req, res) => {
     }
 };
 
+const deleteOne = (model) => async (req, res) => {
+    try {
+        const item = await model.findByIdAndDelete(req.params.id).lean().exec();
 
-module.exports = { postFavourite, getAllFavourite, getAllPaginated, getOne };
+        return res.status(201).send(item);
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+}
+
+
+module.exports = { postFavourite, getAllFavourite, getAllPaginated, getOne, deleteOne };

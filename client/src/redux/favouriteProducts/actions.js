@@ -50,3 +50,14 @@ export const getFavouriteRequest = (token) => async (dispatch) => {
         dispatch(getFavouriteError());
     }
 }
+
+export const removeFavouriteRequest = (id, toast, token) => async (dispatch) => {
+    try {
+        await axios.delete(`/favourite/${id}`);
+        dispatch(getFavouriteRequest(token));
+        notify(toast, "Item removed from favourites", "success");
+    } catch (err) {
+        console.log(err);
+        notify(toast, "Something went wrong", "error");
+    }
+}

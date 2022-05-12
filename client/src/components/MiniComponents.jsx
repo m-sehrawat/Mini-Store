@@ -28,44 +28,52 @@ export const Section = ({ img, title, gender }) => {
 };
 
 
-
 export const ProductBox = ({ data }) => {
 
     const { _id, name, img, category, brand, price, rating } = data;
 
     return (
-        <>
-            <Link to={`/products/${_id}`}>
-                <Flex flexDirection={'column'} boxShadow='sm' overflow={'hidden'}>
-                    <Box overflow={'hidden'}>
-                        <Image className="zoom" src={img[0]} />
-                    </Box>
-                    <Box p={'10px'}>
-                        <Text fontSize={17} m={"10px 10px 2px"}>{shortString(name)}</Text>
-                        <Text fontSize={14} color={'grey'} m={"2px 10px 2px"}>{category}</Text>
-                        <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>{brand}</Text>
-                        <Text fontSize={20} color={'grey'} m={"1px 10px 2px"}>₹ {numberWithCommas(price)}</Text>
-                        <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>Rating: {rating}</Text>
-                    </Box>
-                </Flex>
-            </Link>
-        </>
+        <Link to={`/products/${_id}`}>
+            <Flex flexDirection={'column'} boxShadow='sm' overflow={'hidden'}>
+                <Box overflow={'hidden'}>
+                    <Image className="zoom" src={img[0]} />
+                </Box>
+                <Box p={'10px'}>
+                    <Text fontSize={17} m={"10px 10px 2px"}>{shortString(name)}</Text>
+                    <Text fontSize={14} color={'grey'} m={"2px 10px 2px"}>{category}</Text>
+                    <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>{brand}</Text>
+                    <Text fontSize={20} color={'grey'} m={"1px 10px 2px"}>₹ {numberWithCommas(price)}</Text>
+                    <Text fontSize={14} color={'grey'} m={"1px 10px 2px"}>Rating: {rating}</Text>
+                </Box>
+            </Flex>
+        </Link>
+    );
+};
+
+
+export const FavouriteBox = ({ data, onClick }) => {
+
+    const { name, img, price } = data;
+
+    return (
+        <Flex flexDirection={'column'} boxShadow='sm' overflow={'hidden'}>
+            <Box overflow={'hidden'}>
+                <Image className="zoom" src={img[0]} />
+            </Box>
+            <Box p={'10px'}>
+                <Text fontSize={['12px', '13px', '13px', '15px']} m={"10px 10px 2px"}>{shortString(name)}</Text>
+                <Text fontSize={['14px', '18px']} color={'grey'} m={"1px 10px 2px"}>₹ {numberWithCommas(price)}</Text>
+                <Button onClick={onClick} w={'100%'}>Remove</Button>
+            </Box>
+        </Flex>
     );
 };
 
 
 export const NavButton = ({ path, name, onClick }) => {
     return <Button px={'0px'} onClick={onClick} bg={'transparent'} mr={'3px'} ><Link to={path}>{name}</Link></Button>;
-}
-
+};
 
 export const BigIcon = ({ icon, label }) => {
-
-    return (
-        <>
-            <Tooltip label={label}>
-                <span><Icon w={'26px'} h={'26px'} as={icon} /></span>
-            </Tooltip>
-        </>
-    );
+    return <Tooltip label={label}><span><Icon w={'26px'} h={'26px'} as={icon} /></span></Tooltip>
 };

@@ -16,7 +16,6 @@ export const ProductDetails = () => {
     const toast = useToast();
     const dispatch = useDispatch();
     const { isLoading, oneProduct, isError } = useSelector((state) => state.oneProductReducer, shallowEqual);
-    console.log('oneProduct:', oneProduct)
     const token = useSelector((state) => state.authReducer.token);
     const { img, name, category, gender, size, brand, rating, collections, price } = oneProduct;
 
