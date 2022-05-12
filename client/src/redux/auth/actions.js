@@ -22,7 +22,7 @@ export const signupRequest = (payload, toast, navigate) => async (dispatch) => {
         notify(toast, 'Account Created Successfully', 'success');
         navigate(-2);
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data);
         notify(toast, err.response.data.message, 'error');
     }
 }
@@ -37,7 +37,7 @@ export const loginRequest = (payload, toast, navigate) => async (dispatch) => {
         notify(toast, 'Login Successfully', 'success');
         navigate(-1);
     } catch (err) {
-        console.log("here:",err);
+        console.log(err.response.data);
         notify(toast, err.response.data.message, 'error');
     }
 }

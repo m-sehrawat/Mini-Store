@@ -29,4 +29,9 @@ const getCategory = (category) => {
     return category === "allCategory" ? x : y;
 }
 
-module.exports = { sortValue, getGender, getCategory };
+const renameObjectKey = (obj, newKey, oldKey) => {
+    delete Object.assign(obj, { [newKey]: obj[oldKey] })[oldKey];
+    return obj;
+};
+
+module.exports = { sortValue, getGender, getCategory, renameObjectKey };

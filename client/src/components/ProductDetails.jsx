@@ -5,9 +5,11 @@ import { useParams } from "react-router-dom";
 import { getOneDataRequest } from "../redux/oneProduct/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
-import {  BsCart, BsHeart } from 'react-icons/bs';
-import { deleteKeyFromObject, notify } from "../helpers/extrafunctions";
+import { BsCart, BsHeart } from 'react-icons/bs';
 import { addFavouriteRequest } from "../redux/favouriteProducts/actions";
+import { addToCartRequest } from "../redux/cartProducts/actions";
+import { notify } from "../helpers/extrafunctions";
+
 
 export const ProductDetails = () => {
 
@@ -23,9 +25,14 @@ export const ProductDetails = () => {
 
     const handleFavourite = () => {
         if (!token) return notify(toast, "Please login first", "error");
-        deleteKeyFromObject(oneProduct, "_id");
         dispatch(addFavouriteRequest(oneProduct, token, toast));
-    }
+    };
+    
+
+    const handleAddToCart = () => {
+        if (!token) return notify(toast, "Please login first", "error");
+        dispatch(addToCartRequest(oneProduct, token, toast));
+    };
 
     useEffect(() => {
         dispatch(getOneDataRequest(id));
@@ -62,7 +69,7 @@ export const ProductDetails = () => {
                 <Text my={2} fontSize={20} color={'grey'}>Sizes: {size.join(", ")}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Gender: {gender === 'men' ? 'Men' : 'Women'}</Text>
                 <Flex mr={['0px', '0px', '20px']} gap={'10px'} flexDirection={'column'}>
-                    <Button leftIcon={<BsCart />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Cart</Button>
+                    <Button onClick={handleAddToCart} leftIcon={<BsCart />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Cart</Button>
                     <Button onClick={handleFavourite} leftIcon={<BsHeart />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Favourite</Button>
                 </Flex>
             </Box>

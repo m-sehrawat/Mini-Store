@@ -60,7 +60,7 @@ export const getAllDataRequest = (page, setlimit, size, isGender, category, isSo
         }
 
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data);
         dispatch(getDataError());
     }
 };

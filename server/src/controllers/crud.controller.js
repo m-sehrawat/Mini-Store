@@ -12,6 +12,17 @@ const postFavourite = (model) => async (req, res) => {
     }
 };
 
+const postCart = (model) => async (req, res) => {
+    try {
+        const item = await model.create({ ...req.body, user: req.user._id });
+
+        return res.status(201).send(item);
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
 const getAllFavourite = (model) => async (req, res) => {
     try {
         const item = await model.find({ user: req.user._id }).lean().exec();
@@ -73,4 +84,4 @@ const deleteOne = (model) => async (req, res) => {
 }
 
 
-module.exports = { postFavourite, getAllFavourite, getAllPaginated, getOne, deleteOne };
+module.exports = { postFavourite,postCart, getAllFavourite, getAllPaginated, getOne, deleteOne };

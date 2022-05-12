@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const favouriteSchema = new Schema({
+const cartSchema = new Schema({
     img: { type: Array, required: true },
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -12,6 +12,7 @@ const favouriteSchema = new Schema({
     brand: { type: String, required: true },
     collections: { type: String, required: true },
     productId: { type: String, required: true },
+    quantity: { type: Number, default: 1 },
     user: {
         type: Schema.Types.ObjectId,
         ref: "user",
@@ -22,4 +23,4 @@ const favouriteSchema = new Schema({
     timestamps: true
 });
 
-module.exports = model("favourite", favouriteSchema);
+module.exports = model("cart", cartSchema);

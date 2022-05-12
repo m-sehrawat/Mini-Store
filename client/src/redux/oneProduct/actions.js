@@ -21,7 +21,7 @@ export const getOneDataRequest = (id) =>  async (dispatch) => {
         dispatch(getOneDataSuccess(res.data));
         
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data);
         dispatch(getOneDataError());
     }
 }

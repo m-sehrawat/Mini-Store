@@ -18,19 +18,10 @@ export const getFavouriteError = () => {
 
 export const addFavouriteRequest = (payload, token, toast) => async () => {
     try {
-        const options = {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            data: JSON.stringify(payload),
-            url: "/favourite",
-        };
-        await axios(options);
+        await axios.post("/favourite", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         notify(toast, "Product added to the favourite", "success");
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data);
         if (err.response.data.message === "Already present in the Favourite") {
             notify(toast, err.response.data.message, "info");
         } else {
@@ -46,7 +37,7 @@ export const getFavouriteRequest = (token) => async (dispatch) => {
         let res = await axios.get("/favourite", { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(getFavouriteSuccess(res.data));
     } catch (err) {
-        console.log(err);
+        console.log(err.response.data);
         dispatch(getFavouriteError());
     }
 }
