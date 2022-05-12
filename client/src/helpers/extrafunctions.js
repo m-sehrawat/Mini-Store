@@ -28,3 +28,8 @@ export const notify = (toast, title, status, description) => {
         isClosable: true,
     });
 };
+
+export const deleteKeyFromObject = (obj, key)=> {
+    delete obj[key];
+    return obj;
+}

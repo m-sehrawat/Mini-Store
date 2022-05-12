@@ -1,4 +1,4 @@
-import { Box, Button, Image, Text, Flex, Grid, VStack, useToast } from "@chakra-ui/react";
+import { Box, Button, Image, Text, Flex, Grid, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -6,7 +6,7 @@ import { getOneDataRequest } from "../redux/oneProduct/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { BsCartPlusFill, BsHeartFill } from "react-icons/bs";
-import { notify } from "../helpers/extrafunctions";
+import { deleteKeyFromObject, notify } from "../helpers/extrafunctions";
 import { addFavouriteRequest } from "../redux/favouriteProducts/actions";
 
 export const ProductDetails = () => {
@@ -16,14 +16,16 @@ export const ProductDetails = () => {
     const toast = useToast();
     const dispatch = useDispatch();
     const { isLoading, oneProduct, isError } = useSelector((state) => state.oneProductReducer, shallowEqual);
-    const { token, user: { _id } } = useSelector((state) => state.authReducer, shallowEqual);
+    console.log('oneProduct:', oneProduct)
+    const token = useSelector((state) => state.authReducer.token);
     const { img, name, category, gender, size, brand, rating, collections, price } = oneProduct;
 
     const handleImageChange = (value) => setNum(num + value);
 
     const handleFavourite = () => {
         if (!token) return notify(toast, "Please login first", "error");
-        dispatch(addFavouriteRequest({ ...oneProduct, user: _id }, toast));
+        deleteKeyFromObject(oneProduct, "_id");
+        dispatch(addFavouriteRequest(oneProduct, token, toast));
     }
 
     useEffect(() => {

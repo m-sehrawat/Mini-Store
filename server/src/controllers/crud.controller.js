@@ -1,9 +1,9 @@
 const { sortValue, getGender } = require('../utils/extraFunctions');
 
 
-const post = (model) => async (req, res) => {
+const postFavourite = (model) => async (req, res) => {
     try {
-        const item = await model.create(req.body);
+        const item = await model.create({...req.body, user: req.user._id});
 
         return res.status(201).send(item);
 
@@ -60,4 +60,4 @@ const getAllPaginated = (model) => async (req, res) => {
 };
 
 
-module.exports = { post, getAll, getAllPaginated, getOne };
+module.exports = { postFavourite, getAll, getAllPaginated, getOne };

@@ -1,11 +1,13 @@
 const router = require('express').Router();
 
+const authorization = require('../middlewares/authorization');
+const checkDuplicate = require('../middlewares/checkDuplicate');
 const Favourite = require("../models/favourite.model");
 
-const { post, getAll } = require('./crud.controller');
+const { postFavourite, getAll } = require('./crud.controller');
 
 
-router.post("/", post(Favourite));
+router.post("/", [authorization, checkDuplicate], postFavourite(Favourite));
 
 router.get("/", getAll(Favourite));
 

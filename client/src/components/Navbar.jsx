@@ -12,7 +12,7 @@ export const Navbar = () => {
     const { colorMode, toggleColorMode } = useColorMode();
 
     const dispatch = useDispatch();
-    const { token, user } = useSelector((state) => state.authReducer, shallowEqual)
+    const { token, user } = useSelector((state) => state.authReducer, shallowEqual);
 
     const handleGenderChange = () => {
         dispatch(setGender("allProducts"));

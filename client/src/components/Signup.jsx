@@ -14,7 +14,7 @@ export const Signup = () => {
     const dispatch = useDispatch();
 
     const handleChange = ({ target: { name, value } }) => {
-        setSignup({ ...signup, [name]: value })
+        setSignup({ ...signup, [name]: value });
     }
 
     const handleSubmit = () => {
