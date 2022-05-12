@@ -17,7 +17,7 @@ export const ProductDetails = () => {
     const dispatch = useDispatch();
     const { isLoading, oneProduct, isError } = useSelector((state) => state.oneProductReducer, shallowEqual);
     const token = useSelector((state) => state.authReducer.token);
-    const { img, name, category, gender, size, brand, rating, collections, price } = oneProduct;
+    const { img, name, description, gender, size, brand, rating, collections, price } = oneProduct;
 
     const handleImageChange = (value) => setNum(num + value);
 
@@ -50,7 +50,7 @@ export const ProductDetails = () => {
             </Box>
 
             <Box overflow={'hidden'} p={'30px'} >
-                <Text my={2} fontSize={18} color={'grey'}  >{category}</Text>
+                <Text my={2} fontSize={18} color={'grey'}  >{description}</Text>
                 <Text my={2} fontSize={['22px', '30px']}><b>{name}</b></Text>
                 <Text my={4} fontSize={['30px', '40px']} color={'red'}>
                     <Text color={'grey'} as='del'>₹{price + Math.floor(0.2 * price)}.00</Text> &nbsp;

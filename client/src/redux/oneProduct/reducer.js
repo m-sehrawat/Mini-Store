@@ -6,7 +6,7 @@ const initState = {
         _id: "",
         img: [],
         name: "",
-        category: "",
+        description: "",
         price: 0,
         brand: "",
         collections: "",

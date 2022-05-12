@@ -38,11 +38,11 @@ export const Navbar = () => {
                     <NavButton name={<BigIcon label={'Favourite'} icon={BsHeart} />} path={'/favourite'} />
                     <NavButton name={<BigIcon label={'Cart'} icon={BsCart} />} path={'/cart'} />
 
-                    {!!token ? <Logout name={user.name} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
-
                     <Button px={'0px'} bg={'transparent'} onClick={toggleColorMode}>
                         {colorMode === "light" ? <BigIcon label={'Dark Mode'} icon={BsMoonStars} /> : <BigIcon label={'Light Mode'} icon={BsSun} />}
                     </Button>
+
+                    {!!token ? <Logout name={user.name} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
                 </Center>
             </Flex>
         </>

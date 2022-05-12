@@ -5,3 +5,4 @@ export const SET_GENDER = "SET_GENDER";
 export const SET_CATEGORY = "SET_CATEGORY"; 
 export const SET_SORT = "SET_SORT"; 
 export const SET_GRID = "SET_GRID"; 
+export const RESET_FILTER = "RESET_FILTER"; 

@@ -1,7 +1,7 @@
-import { Grid, Flex, Button, HStack, Heading, Text, Center } from "@chakra-ui/react";
+import { Grid, Flex, Button, HStack, Heading, Text, Center, Spacer } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getAllDataRequest } from "../redux/allProducts/actions";
+import { getAllDataRequest, resetFilter } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
@@ -22,10 +22,13 @@ export const Products = () => {
     const dispatch = useDispatch();
     const { products, isLoading, isError, isGender, category, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
 
-    useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit, size, isGender,category, isSort, setTotalProducts));
-    }, [page, isGender, setlimit, isSort, dispatch, size, category]);
+    const handleResetFilter = () => {
+        dispatch(resetFilter());
+    }
 
+    useEffect(() => {
+        dispatch(getAllDataRequest(page, setlimit, size, isGender, category, isSort, setTotalProducts));
+    }, [page, isGender, setlimit, isSort, dispatch, size, category]);
 
 
     return isLoading ? (
@@ -41,6 +44,8 @@ export const Products = () => {
                             : isGender === "kids" ? "Kids" : "All"}
                     </Heading>
                     <Text fontSize={['18px', '24px']}>({totalProducts})</Text>
+                    <Spacer />
+                    <Button onClick={handleResetFilter} display={['inline-block', 'none']}>Reset</Button>
                 </Center>
 
                 <Center gap={'10px'}>
@@ -53,10 +58,11 @@ export const Products = () => {
                     <CategoryMenu />
                     <GenderMenu />
                     <SortMenu />
+                    <Button onClick={handleResetFilter} display={['none', 'inline-block']}>Reset</Button>
                 </Center>
             </Flex>
 
-            {products.length === 0 ? <EmptyList /> : <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', `repeat(${grid}, 1fr)`]} gap={'20px'} p={'20px'} maxW={screen ? 1200 : '98%'} m={'40px auto'}>
+            {products.length === 0 ? <EmptyList /> : <Grid className="expand" templateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)', 'repeat(2, 1fr)', `repeat(${grid}, 1fr)`]} gap={'20px'} p={'20px'} maxW={screen ? 1200 : '98%'} m={'40px auto'}>
                 {products.map((e) => (
                     <ProductBox key={e._id} data={e} />
                 ))}
