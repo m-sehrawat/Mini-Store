@@ -5,7 +5,9 @@ import { setItem } from "../helpers/sessionStorage";
 import { setGender } from "../redux/allProducts/actions";
 import { Logout } from "./Logout";
 import { BigIcon, NavButton } from "./MiniComponents";
-import { BsFillSunFill, BsFillMoonFill, BsCartPlusFill, BsHeartFill } from 'react-icons/bs';
+import { BsSun, BsMoonStars, BsCart, BsHeart } from 'react-icons/bs';
+import { FiLogIn, FiHome } from 'react-icons/fi';
+import { CgDisplayGrid } from 'react-icons/cg';
 
 export const Navbar = () => {
 
@@ -29,15 +31,18 @@ export const Navbar = () => {
                 </Center>
                 <Spacer />
                 <Center>
-                    <NavButton name={'Home'} path={'/'} />
-                    <NavButton onClick={handleGenderChange} name={'Products'} path={'/products'} />
-                    {!!token ? <Logout name={user.name} /> : <NavButton name={'Login'} path={'/login'} />}
+                    <NavButton name={<BigIcon label={'Home'} icon={FiHome} />} path={'/'} />
+                    <NavButton onClick={handleGenderChange} name={<BigIcon label={'All Products'} icon={CgDisplayGrid} />} path={'/products'} />
 
-                    <NavButton name={<BigIcon icon={BsHeartFill} />} path={'/favourite'} />
-                    <NavButton name={<BigIcon icon={BsCartPlusFill} />} path={'/cart'} />
+                    <NavButton name={<BigIcon label={'Favourite'} icon={BsHeart} />} path={'/favourite'} />
+                    <NavButton name={<BigIcon label={'Cart'} icon={BsCart} />} path={'/cart'} />
 
-                    <Button bg={'transparent'} onClick={toggleColorMode}>
-                        {colorMode === "light" ? <BigIcon icon={BsFillMoonFill} /> : <BigIcon icon={BsFillSunFill} />}
+                    {!!token ? <Logout name={user.name} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
+
+                    
+
+                    <Button px={'0px'} bg={'transparent'} onClick={toggleColorMode}>
+                        {colorMode === "light" ? <BigIcon label={'Dark Mode'} icon={BsMoonStars} /> : <BigIcon label={'Light Mode'} icon={BsSun} />}
                     </Button>
                 </Center>
             </Flex>

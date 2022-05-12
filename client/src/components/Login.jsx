@@ -22,7 +22,7 @@ export const Login = () => {
 
     return (
         <>
-            <Container border={'1px solid #edf2f7'} my={['190px', '100px']} borderRadius={'2%'} p={'30px'} maxW={'400px'}>
+            <Container border={'1px solid #edf2f7'} my={['190px', '120px']} borderRadius={'2%'} p={'30px'} maxW={'400px'}>
                 <VStack gap={'10px'}>
                     <Heading>Login</Heading>
                     <Input onChange={handleChange} name='email' value={login.email} type={'email'} placeholder='Email' />
