@@ -1,5 +1,7 @@
-import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, RESET_FILTER, SET_CATEGORY, SET_GENDER, SET_GRID, SET_SORT } from "./actionTypes";
+import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, RESET_FILTER, SET_CATEGORY, SET_GENDER, SET_GRID, SET_PAGE, SET_SORT } from "./actionTypes";
 import axios from "axios";
+import { setItem } from "../../helpers/sessionStorage";
+import { notify } from "../../helpers/extrafunctions";
 
 
 export const getDataLoading = () => {
@@ -30,11 +32,15 @@ export const setGrid = (payload) => {
     return { type: SET_GRID, payload };
 };
 
+export const setPage = (payload) => {
+    return { type: SET_PAGE, payload };
+};
+
 export const resetFilter = () => {
     return { type: RESET_FILTER };
 };
 
-export const getAllDataRequest = (page, setlimit, size, isGender, category, isSort, setTotalProducts) => async (dispatch) => {
+export const getAllDataRequest = (page, setlimit, size, isGender, category, isSort, setTotalProducts, grid, reset, setReset, toast) => async (dispatch) => {
     try {
         dispatch(getDataLoading());
         let res = await axios.get(`/products?page=${page}&gender=${isGender}&category=${category}&sort=${isSort}&limit=${size}`);
@@ -42,6 +48,16 @@ export const getAllDataRequest = (page, setlimit, size, isGender, category, isSo
         setlimit(res.totalPages);
         setTotalProducts(res.totalProducts);
         dispatch(getDataSuccess(res.item));
+
+        if (reset) {
+            setItem("isGender", isGender);
+            setItem("category", category);
+            setItem("grid", grid);
+            setItem("size", size);
+            setItem("page", page);
+            setReset(false);
+            notify(toast, "Reset all filters successfully", "success");
+        }
 
     } catch (err) {
         console.log(err);

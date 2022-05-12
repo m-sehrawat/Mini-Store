@@ -1,7 +1,7 @@
-import { Grid, Flex, Button, HStack, Heading, Text, Center, Spacer } from "@chakra-ui/react";
+import { Grid, Flex, Button, HStack, Heading, Text, Center, Spacer, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getAllDataRequest, resetFilter } from "../redux/allProducts/actions";
+import { getAllDataRequest, resetFilter, setPage } from "../redux/allProducts/actions";
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { ProductBox } from "./MiniComponents";
@@ -11,24 +11,32 @@ import { GridMenu } from "./GridMenu";
 import { EmptyList } from "./EmptyList";
 import { GenderMenu } from "./GenderMenu";
 import { CategoryMenu } from "./CategoryMenu";
+import { setItem } from "../helpers/sessionStorage";
 
 export const Products = () => {
 
-    const [page, setPage] = useState(1);
+    const [reset, setReset] = useState(false);
     const [limit, setlimit] = useState(null);
     const [totalProducts, setTotalProducts] = useState(0);
     const [screen, setScreen] = useState(true);
 
+    const toast = useToast();
     const dispatch = useDispatch();
-    const { products, isLoading, isError, isGender, category, isSort, grid, size } = useSelector((state) => state.allProductsReducer, shallowEqual);
+    const { products, isLoading, isError, isGender, category, isSort, grid, size, page } = useSelector((state) => state.allProductsReducer, shallowEqual);
+
+    const handlePageChange = (payload) => {
+        dispatch(setPage(payload));
+        setItem("page", page + payload);
+    }
 
     const handleResetFilter = () => {
         dispatch(resetFilter());
+        setReset(true);
     }
 
     useEffect(() => {
-        dispatch(getAllDataRequest(page, setlimit, size, isGender, category, isSort, setTotalProducts));
-    }, [page, isGender, setlimit, isSort, dispatch, size, category]);
+        dispatch(getAllDataRequest(page, setlimit, size, isGender, category, isSort, setTotalProducts, grid, reset, setReset, toast));
+    }, [page, isGender, setlimit, isSort, dispatch, size, category, grid, reset, toast]);
 
 
     return isLoading ? (
@@ -70,12 +78,13 @@ export const Products = () => {
 
             <Flex justify={'center'}>
                 <HStack gap={3}>
-                    <Button onClick={() => { setPage((prev) => prev - 1) }} disabled={page === 1}>Prev</Button>
+                    <Button onClick={() => { handlePageChange(-1) }} disabled={page === 1}>Prev</Button>
                     <Text>{page}</Text>
-                    <Button onClick={() => { setPage((prev) => prev + 1) }} disabled={page === limit}>Next</Button>
+                    <Button onClick={() => { handlePageChange(1) }} disabled={page === limit}>Next</Button>
                 </HStack>
             </Flex>
         </>
     );
 };
+
 
