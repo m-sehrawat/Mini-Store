@@ -1,5 +1,19 @@
 import axios from "axios";
 import { notify } from "../../helpers/extrafunctions";
+import { GET_FAVOURITE_ERROR, GET_FAVOURITE_LOADING, GET_FAVOURITE_SUCCESS } from "./actionTypes";
+
+
+export const getFavouriteLoading = () => {
+    return { type: GET_FAVOURITE_LOADING };
+};
+
+export const getFavouriteSuccess = (payload) => {
+    return { type: GET_FAVOURITE_SUCCESS, payload };
+};
+
+export const getFavouriteError = () => {
+    return { type: GET_FAVOURITE_ERROR };
+};
 
 
 export const addFavouriteRequest = (payload, token, toast) => async () => {
@@ -22,5 +36,17 @@ export const addFavouriteRequest = (payload, token, toast) => async () => {
         } else {
             notify(toast, "Something went wrong", "error");
         }
+    }
+}
+
+
+export const getFavouriteRequest = (token) => async (dispatch) => {
+    try {
+        dispatch(getFavouriteLoading());
+        let res = await axios.get("/favourite", { headers: { 'Authorization': `Bearer ${token}` } });
+        dispatch(getFavouriteSuccess(res.data));
+    } catch (err) {
+        console.log(err);
+        dispatch(getFavouriteError());
     }
 }

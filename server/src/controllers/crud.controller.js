@@ -3,7 +3,7 @@ const { sortValue, getGender } = require('../utils/extraFunctions');
 
 const postFavourite = (model) => async (req, res) => {
     try {
-        const item = await model.create({...req.body, user: req.user._id});
+        const item = await model.create({ ...req.body, user: req.user._id });
 
         return res.status(201).send(item);
 
@@ -12,9 +12,9 @@ const postFavourite = (model) => async (req, res) => {
     }
 };
 
-const getAll = (model) => async (req, res) => {
+const getAllFavourite = (model) => async (req, res) => {
     try {
-        const item = await model.find().lean().exec();
+        const item = await model.find({ user: req.user._id }).lean().exec();
 
         return res.status(201).send(item);
 
@@ -60,4 +60,4 @@ const getAllPaginated = (model) => async (req, res) => {
 };
 
 
-module.exports = { postFavourite, getAll, getAllPaginated, getOne };
+module.exports = { postFavourite, getAllFavourite, getAllPaginated, getOne };

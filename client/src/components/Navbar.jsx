@@ -1,4 +1,4 @@
-import { Button, Center, Flex, Heading, Icon, Spacer, useColorMode } from "@chakra-ui/react";
+import { Button, Center, Flex, Heading, Spacer, useColorMode } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setItem } from "../helpers/sessionStorage";
@@ -8,6 +8,7 @@ import { BigIcon, NavButton } from "./MiniComponents";
 import { BsSun, BsMoonStars, BsCart, BsHeart } from 'react-icons/bs';
 import { FiLogIn, FiHome } from 'react-icons/fi';
 import { CgDisplayGrid } from 'react-icons/cg';
+
 
 export const Navbar = () => {
 
@@ -38,8 +39,6 @@ export const Navbar = () => {
                     <NavButton name={<BigIcon label={'Cart'} icon={BsCart} />} path={'/cart'} />
 
                     {!!token ? <Logout name={user.name} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
-
-                    
 
                     <Button px={'0px'} bg={'transparent'} onClick={toggleColorMode}>
                         {colorMode === "light" ? <BigIcon label={'Dark Mode'} icon={BsMoonStars} /> : <BigIcon label={'Light Mode'} icon={BsSun} />}
