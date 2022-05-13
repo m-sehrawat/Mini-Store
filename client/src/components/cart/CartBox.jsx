@@ -1,10 +1,20 @@
-import { Box, Button, Center, Divider, Grid, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Divider, Grid, Image, Text, useToast } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { deleteFromCartRequest } from "../../redux/cartProducts/actions";
 import { numberWithCommas, shortString } from "../../utils/extrafunctions";
 
 
-export const CartBox = ({ data, onClick }) => {
+export const CartBox = ({ data }) => {
 
-    const { name, img, price, quantity } = data;
+    const { _id, name, img, price, quantity } = data;
+
+    const dispatch = useDispatch();
+    const toast = useToast();
+    const token = useSelector((state) => state.authReducer.token);
+
+    const handleDeleteItemChange = () => {
+        dispatch(deleteFromCartRequest(_id, token, toast))
+    }
 
     return (
         <>
@@ -33,11 +43,13 @@ export const CartBox = ({ data, onClick }) => {
                             <Button
                                 size={'sm'}
                                 colorScheme={'red'}
-                                onClick={onClick}
+                                onClick={handleDeleteItemChange}
                                 color={'red'}
                                 borderColor={'red'}
                                 _hover={{ 'bg': 'red', 'color': 'white' }}
-                            >Remove</Button>
+                            >
+                                Remove
+                            </Button>
                         </Center>
                     </Box>
                 </Grid>

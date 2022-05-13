@@ -7,6 +7,7 @@ import { EmptyList } from "../loading/EmptyList";
 import { Error } from "../loading/Error";
 import { Loading } from "../loading/Loading";
 import { OrderSummary } from "./OrderSummary";
+import { Link } from 'react-router-dom';
 
 
 export const Cart = () => {
@@ -42,7 +43,7 @@ export const Cart = () => {
                             <CartBox key={i} data={e} />
                         ))}
                         <Flex p={'20px'} justify={'end'} gap={'10px'}>
-                            <Button>Add more Products</Button>
+                            <Button><Link to={'/products'}>Add more Products</Link></Button>
                             <Button variant={'solid'}>Proceed to Checkout</Button>
                         </Flex>
                     </Flex>}

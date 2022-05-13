@@ -47,7 +47,7 @@ export const cartTotalAmount = (arr) => {
         totalMRP += x.price;
         productCount += x.quantity;
     }
-    shippingCharges = totalMRP < 999 ? 100 : 0;
+    shippingCharges = totalMRP > 0 && totalMRP < 999 ? 100 : 0;
     payableAmount = totalMRP - discount + shippingCharges;
 
     return { discount, productCount, shippingCharges, totalMRP, payableAmount };

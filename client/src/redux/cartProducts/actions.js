@@ -36,10 +36,20 @@ export const getCartDataRequest = (token) => async (dispatch) => {
         res = res.data;
         dispatch(addToCartSuccess(res));
         const payload = cartTotalAmount(res);
-        console.log('payload:', payload)
-        let response = await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
-        console.log('response:', response.data)
+        await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(setCartTotal(payload));
+    } catch (err) {
+        console.log(err.response.data);
+        dispatch(addToCartError());
+    }
+}
+
+export const deleteFromCartRequest = (id, token, toast) => async (dispatch) => {
+    try {
+        dispatch(addToCartLoading());
+        await axios.delete(`/cart/${id}`);
+        dispatch(getCartDataRequest(token));
+        notify(toast, "Item removed successfully", "success");
     } catch (err) {
         console.log(err.response.data);
         dispatch(addToCartError());

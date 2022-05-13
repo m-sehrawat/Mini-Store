@@ -113,5 +113,6 @@ module.exports = {
     getAmount,
     getAllFavourite,
     getAllPaginated,
-    getOne, deleteOne
+    getOne, 
+    deleteOne
 };
