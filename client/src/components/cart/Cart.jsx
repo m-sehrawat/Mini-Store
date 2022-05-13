@@ -28,7 +28,7 @@ export const Cart = () => {
     ) : (
         <>
             <Flex justify={'space-between'} maxW={1200} m={'90px auto 20px'} px={'20px'}>
-                <Center>
+                <Center color={'#0863be'}>
                     <Heading fontSize={['28px', '35px']}>Cart &nbsp;</Heading>
                     <Text fontSize={['18px', '24px']}> ({cart.length})</Text>
                 </Center>
@@ -41,9 +41,9 @@ export const Cart = () => {
                         {cart.map((e, i) => (
                             <CartBox key={i} data={e} />
                         ))}
-                        <Flex border={'1px solid red'}>
+                        <Flex p={'20px'} justify={'end'} gap={'10px'}>
                             <Button>Add more Products</Button>
-                            <Button>Proceed to Checkout</Button>
+                            <Button variant={'solid'}>Proceed to Checkout</Button>
                         </Flex>
                     </Flex>}
                 </Box>

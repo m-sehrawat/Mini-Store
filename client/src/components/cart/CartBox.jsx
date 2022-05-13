@@ -8,7 +8,7 @@ export const CartBox = ({ data, onClick }) => {
 
     return (
         <>
-            <Grid templateColumns={['100%', '60% 40%']} h={['180px', '110px']} overflow={'hidden'}>
+            <Grid templateColumns={['100%', '60% 40%']} h={['190px', '120px']} overflow={'hidden'} p={'5px'}>
                 <Grid templateColumns={'110px 70%'}>
                     <Box w={'110px'} overflow={'hidden'}>
                         <Image src={img[0]} />
@@ -30,7 +30,14 @@ export const CartBox = ({ data, onClick }) => {
                     </Box>
                     <Box >
                         <Center h={'100%'} px={'10px'}>
-                            <Button size={'sm'} colorScheme={'red'} onClick={onClick} >Remove</Button>
+                            <Button
+                                size={'sm'}
+                                colorScheme={'red'}
+                                onClick={onClick}
+                                color={'red'}
+                                borderColor={'red'}
+                                _hover={{ 'bg': 'red', 'color': 'white' }}
+                            >Remove</Button>
                         </Center>
                     </Box>
                 </Grid>

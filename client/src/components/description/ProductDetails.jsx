@@ -8,7 +8,7 @@ import { Loading } from "../loading/Loading";
 import { BsCart, BsHeart } from 'react-icons/bs';
 import { addFavouriteRequest } from "../../redux/favouriteProducts/actions";
 import { addToCartRequest } from "../../redux/cartProducts/actions";
-import { notify } from "../../utils/extrafunctions";
+import { notify, numberWithCommas } from "../../utils/extrafunctions";
 
 
 export const ProductDetails = () => {
@@ -60,8 +60,8 @@ export const ProductDetails = () => {
                 <Text my={2} fontSize={18} color={'grey'}  >{description}</Text>
                 <Text my={2} fontSize={['22px', '30px']}><b>{name}</b></Text>
                 <Text my={4} fontSize={['30px', '40px']} color={'red'}>
-                    <Text color={'grey'} as='del'>₹{price + Math.floor(0.2 * price)}.00</Text> &nbsp;
-                    ₹{price}.00
+                    <Text color={'grey'} as='del'>₹{numberWithCommas(price + Math.floor(0.2 * price))}.00</Text> &nbsp;
+                    ₹{numberWithCommas(price)}.00
                 </Text>
                 <Text my={2} fontSize={20} color={'grey'}>Brand: {brand}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Collection: {collections}</Text>

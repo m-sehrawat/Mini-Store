@@ -1,5 +1,4 @@
-
-import { Box, Flex, Grid, Text } from "@chakra-ui/react";
+import { Box, Flex, Grid } from "@chakra-ui/react";
 import { MainText, Section } from "./Section";
 import { SlideShow } from "./SlideShow";
 

@@ -1,5 +1,5 @@
-export const shortString = (text) => {
-    return text.slice(0, 15) + (text.length > 15 ? "..." : "");
+export const shortString = (text, limit = 15) => {
+    return text.slice(0, limit) + (text.length > limit ? "..." : "");
 }
 
 export const numberWithCommas = (x) => {

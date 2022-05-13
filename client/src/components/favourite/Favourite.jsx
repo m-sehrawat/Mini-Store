@@ -32,7 +32,7 @@ export const Favourite = () => {
     ) : (
         <>
             <Flex justify={'space-between'} maxW={1200} m={'90px auto 20px'} px={'20px'}>
-                <Center>
+                <Center color={'#0863be'}>
                     <Heading fontSize={['25px', '35px']}>Favourite &nbsp;</Heading>
                     <Text fontSize={['18px', '24px']}> ({favourite.length})</Text>
                 </Center>
