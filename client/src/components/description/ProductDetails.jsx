@@ -44,10 +44,10 @@ export const ProductDetails = () => {
     ) : isError ? (
         <Error />
     ) : (
-        <Grid m={'40px auto'} p={'10px'} gap={'10px'} maxW={'1100px'} templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']} >
+        <Grid m={'80px auto 40px'} p={'10px'} gap={'10px'} maxW={'1100px'} templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']} >
 
             <Box>
-                <Box borderRadius={'10%'} boxShadow='lg' overflow={'hidden'}>
+                <Box boxShadow='lg' overflow={'hidden'}>
                     <Image className="zoom" src={img[num]} />
                 </Box>
                 <Flex justifyContent={'center'} gap={'30px'} my={'20px'}>
@@ -68,9 +68,9 @@ export const ProductDetails = () => {
                 <Text my={2} fontSize={20} color={'grey'}>Rating: {rating}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Sizes: {size.join(", ")}</Text>
                 <Text my={2} fontSize={20} color={'grey'}>Gender: {gender === 'men' ? 'Men' : 'Women'}</Text>
-                <Flex mr={['0px', '0px', '20px']} gap={'10px'} flexDirection={'column'}>
-                    <Button onClick={handleAddToCart} leftIcon={<BsCart />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Cart</Button>
-                    <Button onClick={handleFavourite} leftIcon={<BsHeart />} borderRadius={'30px'} fontSize={'20px'} h={'60px'}>Add to Favourite</Button>
+                <Flex mr={['0px', '0px', '30px']} gap={'12px'} flexDirection={'column'}>
+                    <Button onClick={handleAddToCart} variant={'solid'} leftIcon={<BsCart />} fontSize={'18px'} h={'50px'}>Add to Cart</Button>
+                    <Button onClick={handleFavourite} leftIcon={<BsHeart />} fontSize={'18px'} h={'50px'}>Add to Favourite</Button>
                 </Flex>
             </Box>
         </Grid>

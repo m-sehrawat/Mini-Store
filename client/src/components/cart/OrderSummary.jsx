@@ -1,8 +1,21 @@
-import { Box, Button, Divider, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Input, Text, useToast } from "@chakra-ui/react";
 import { numberWithCommas } from "../../utils/extrafunctions";
+import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { getCartDataRequest } from "../../redux/cartProducts/actions";
 
 export const OrderSummary = ({ data }) => {
+
     const { discount, productCount, shippingCharges, totalMRP, payableAmount } = data;
+    const [couponCode, setCouponCode] = useState("");
+
+    const dispatch = useDispatch();
+    const toast = useToast();
+    const token = useSelector((state) => state.authReducer.token);
+
+    const handleCouponDiscount = () => {
+        dispatch(getCartDataRequest(token, toast, couponCode));
+    }
 
     return (
         <>
@@ -19,8 +32,8 @@ export const OrderSummary = ({ data }) => {
                 <Divider />
 
                 <Flex mt={'30px'} gap={'15px'} flexDirection={'column'}>
-                    <Input type={'text'} placeholder='Coupon Code' />
-                    <Button w={'100%'}>Apply Coupon</Button>
+                    <Input onChange={(e) => { setCouponCode(e.target.value) }} type={'text'} placeholder='Coupon Code' />
+                    <Button onClick={handleCouponDiscount} w={'100%'}>Apply Coupon</Button>
                 </Flex>
             </Box>
         </>

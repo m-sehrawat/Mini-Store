@@ -35,7 +35,7 @@ export const deleteKeyFromObject = (obj, key) => {
     return obj;
 }
 
-export const cartTotalAmount = (arr) => {
+export const cartTotalAmount = (arr, coupon) => {
 
     let discount = 0;
     let productCount = 0;
@@ -47,6 +47,8 @@ export const cartTotalAmount = (arr) => {
         totalMRP += x.price;
         productCount += x.quantity;
     }
+    discount = Math.floor(totalMRP * coupon / 100);
+    console.log('discount:', discount)
     shippingCharges = totalMRP > 0 && totalMRP < 999 ? 100 : 0;
     payableAmount = totalMRP - discount + shippingCharges;
 

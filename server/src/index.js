@@ -8,11 +8,16 @@ app.use(express.json());
 
 app.use(cors());
 
+const { Signup, Login } = require('./controllers/auth.controller');
 const productController = require("./controllers/product.controller");
 const favouriteController = require("./controllers/favourite.controller");
 const cartController = require("./controllers/cart.controller");
 const amountController = require("./controllers/amount.controller");
-const { Signup, Login } = require('./controllers/auth.controller');
+const couponController = require("./controllers/coupon.controller");
+
+app.post("/signup", Signup);
+
+app.post("/login", Login);
 
 app.use("/products", productController);
 
@@ -22,8 +27,7 @@ app.use("/cart", cartController);
 
 app.use("/amount", amountController);
 
-app.post("/signup", Signup);
+app.use("/coupon", couponController);
 
-app.post("/login", Login);
 
 module.exports = app;

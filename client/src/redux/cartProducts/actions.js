@@ -29,15 +29,29 @@ export const addToCartRequest = (payload, token, toast) => async () => {
     }
 };
 
-export const getCartDataRequest = (token) => async (dispatch) => {
+export const getCartDataRequest = (token, toast, couponCode) => async (dispatch) => {
     try {
         dispatch(addToCartLoading());
         let res = await axios.get("/cart", { headers: { 'Authorization': `Bearer ${token}` } });
         res = res.data;
         dispatch(addToCartSuccess(res));
-        const payload = cartTotalAmount(res);
+
+        let coupon = 0;
+        if (couponCode) {
+            try {
+                coupon = await axios.post("/coupon", { couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
+                coupon = coupon.data.discountValue;
+                notify(toast, "Coupon applied successfully", 'success');
+            } catch (err) {
+                console.log(err.response.data);
+                notify(toast, err.response.data, 'error');
+            }
+        }
+
+        const payload = cartTotalAmount(res, coupon);
         await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(setCartTotal(payload));
+
     } catch (err) {
         console.log(err.response.data);
         dispatch(addToCartError());
