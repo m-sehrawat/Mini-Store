@@ -17,21 +17,21 @@ export const Home = () => {
                     gender={'men'}
                     title={"Men's Products"}
                     path={'/category/men'}
-                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20211031_LLSupply_00161_540x.jpg?v=1636495873"}
+                    img={"home/men.png"}
                 />
 
                 <Section
                     gender={'women'}
                     title={"Women's Products"}
                     path={'/category/women'}
-                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20211031_LLSupply_00446_540x.jpg?v=1636495899"}
+                    img={"home/women.png"}
                 />
 
                 <Section
                     gender={'kids'}
                     title={"Kid's Products"}
                     path={'/category/kids'}
-                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20210812_LLSupply_00003_900x.jpg?v=1630285650"}
+                    img={"home/kids.png"}
                 />
 
             </Grid>

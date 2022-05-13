@@ -45,7 +45,7 @@ export const Products = () => {
         <Error />
     ) : (
         <>
-            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
+            <Flex flexDirection={['column', 'row']} gap={'20px'} justifyContent={'space-between'} maxW={1200} m={'90px auto 20px'} px={'20px'}>
                 <Center>
                     <Heading fontSize={['25px', '35px']}>{isGender === "men" ? "Men"
                         : isGender === "women" ? "Women"

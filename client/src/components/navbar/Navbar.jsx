@@ -27,7 +27,7 @@ export const Navbar = () => {
             <Flex top={'0px'} bg={colorMode === "dark" ? '#1a202c' : 'white'} h={14} pr={'10px'} w={'100%'} shadow={'sm'} pos={'fixed'} zIndex={2}>
                 <Center>
                     <Link to={'/'}>
-                        <Heading color={'#0863be'} ml={5} display={['none', 'block']} fontWeight={900} fontSize={'40px'}>Mini Store</Heading>
+                        <Heading color={'#0863be'} ml={5} display={['none','none', 'block']} fontWeight={900} fontSize={'40px'}>Mini Store</Heading>
                     </Link>
                 </Center>
                 <Spacer />

@@ -17,7 +17,7 @@ export const Router = () => {
         <>
             <Navbar />
 
-            <Box mt={'80px'}>
+            <Box mt={'55px'}>
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/login" element={<Login />} />

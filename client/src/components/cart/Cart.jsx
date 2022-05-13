@@ -27,7 +27,7 @@ export const Cart = () => {
         <Error />
     ) : (
         <>
-            <Flex justify={'space-between'} maxW={1200} m={'20px auto'} px={'20px'}>
+            <Flex justify={'space-between'} maxW={1200} m={'90px auto 20px'} px={'20px'}>
                 <Center>
                     <Heading fontSize={['28px', '35px']}>Cart &nbsp;</Heading>
                     <Text fontSize={['18px', '24px']}> ({cart.length})</Text>
