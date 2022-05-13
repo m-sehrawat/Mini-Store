@@ -53,5 +53,19 @@ export const deleteFromCartRequest = (id, token, toast) => async (dispatch) => {
     } catch (err) {
         console.log(err.response.data);
         dispatch(addToCartError());
+        notify(toast, "Something went wrong", "error");
+    }
+}
+
+export const updateQuantityInCartRequest = (id, payload, token, toast) => async (dispatch) => {
+    try {
+        dispatch(addToCartLoading());
+        await axios.patch(`/cart/${id}`, payload);
+        dispatch(getCartDataRequest(token));
+        notify(toast, "Quantity updated successfully", "success");
+    } catch (err) {
+        console.log(err.response.data);
+        dispatch(addToCartError());
+        notify(toast, "Something went wrong", "error");
     }
 }

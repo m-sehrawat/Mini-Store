@@ -1,6 +1,6 @@
 import { Box, Button, Center, Divider, Grid, Image, Text, useToast } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteFromCartRequest } from "../../redux/cartProducts/actions";
+import { deleteFromCartRequest, updateQuantityInCartRequest } from "../../redux/cartProducts/actions";
 import { numberWithCommas, shortString } from "../../utils/extrafunctions";
 
 
@@ -13,8 +13,20 @@ export const CartBox = ({ data }) => {
     const token = useSelector((state) => state.authReducer.token);
 
     const handleDeleteItemChange = () => {
-        dispatch(deleteFromCartRequest(_id, token, toast))
-    }
+        dispatch(deleteFromCartRequest(_id, token, toast));
+    };
+
+    const handleQuantityChange = (value) => {
+        if (quantity === 1 && value === -1) {
+            dispatch(deleteFromCartRequest(_id, token, toast));
+        } else {
+            let payload = {
+                quantity: quantity + value,
+                price: value === 1 ? price + (price / quantity) : price - (price / quantity)
+            };
+            dispatch(updateQuantityInCartRequest(_id, payload, token, toast));
+        }
+    };
 
     return (
         <>
@@ -33,17 +45,17 @@ export const CartBox = ({ data }) => {
                 <Grid templateColumns={'50% 50%'} h={['70px', '100%']}>
                     <Box >
                         <Center h={'100%'} >
-                            <Button size={'sm'} fontSize={'20px'} >-</Button>
+                            <Button onClick={() => { handleQuantityChange(-1) }} size={'sm'} fontSize={'20px'} >-</Button>
                             <Text fontSize={'18px'} mx={'15px'}>{quantity}</Text>
-                            <Button size={'sm'} fontSize={'20px'} >+</Button>
+                            <Button onClick={() => { handleQuantityChange(1) }} size={'sm'} fontSize={'20px'} >+</Button>
                         </Center>
                     </Box>
                     <Box >
                         <Center h={'100%'} px={'10px'}>
                             <Button
+                                onClick={handleDeleteItemChange}
                                 size={'sm'}
                                 colorScheme={'red'}
-                                onClick={handleDeleteItemChange}
                                 color={'red'}
                                 borderColor={'red'}
                                 _hover={{ 'bg': 'red', 'color': 'white' }}
