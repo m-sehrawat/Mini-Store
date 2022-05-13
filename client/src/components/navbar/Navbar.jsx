@@ -27,7 +27,7 @@ export const Navbar = () => {
             <Flex top={'0px'} bg={colorMode === "dark" ? '#1a202c' : 'white'} h={14} pr={'10px'} w={'100%'} shadow={'sm'} pos={'fixed'} zIndex={2}>
                 <Center>
                     <Link to={'/'}>
-                        <Heading ml={5} display={['none', 'block']} fontSize={'20px'}>Mini Store</Heading>
+                        <Heading color={'#0863be'} ml={5} display={['none', 'block']} fontWeight={900} fontSize={'40px'}>Mini Store</Heading>
                     </Link>
                 </Center>
                 <Spacer />
@@ -38,7 +38,7 @@ export const Navbar = () => {
                     <NavButton name={<BigIcon label={'Favourite'} icon={BsHeart} />} path={'/favourite'} />
                     <NavButton name={<BigIcon label={'Cart'} icon={BsCart} />} path={'/cart'} />
 
-                    <Button px={'0px'} bg={'transparent'} onClick={toggleColorMode}>
+                    <Button px={'0px'} borderRadius={'50%'} border={'none'} onClick={toggleColorMode}>
                         {colorMode === "light" ? <BigIcon label={'Dark Mode'} icon={BsMoonStars} /> : <BigIcon label={'Light Mode'} icon={BsSun} />}
                     </Button>
 

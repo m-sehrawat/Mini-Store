@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Divider, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
@@ -6,6 +6,7 @@ import { CartBox } from "./CartBox";
 import { EmptyList } from "../loading/EmptyList";
 import { Error } from "../loading/Error";
 import { Loading } from "../loading/Loading";
+import { OrderSummary } from "./OrderSummary";
 
 
 export const Cart = () => {
@@ -36,17 +37,18 @@ export const Cart = () => {
             <Grid templateColumns={['100%', '100%', '100%', '62% 33%']} gap={'50px'} maxW={1200} m={'40px auto'} p={'20px'}>
 
                 <Box>
-                    {cart.length === 0 ? <EmptyList /> : <Flex flexDirection={'column'} gap={['30px', '15px', '20px']}  >
+                    {cart.length === 0 ? <EmptyList /> : <Flex className="shadow" flexDirection={'column'}  >
                         {cart.map((e, i) => (
                             <CartBox key={i} data={e} />
                         ))}
+                        <Flex border={'1px solid red'}>
+                            <Button>Add more Products</Button>
+                            <Button>Proceed to Checkout</Button>
+                        </Flex>
                     </Flex>}
                 </Box>
 
-                <Box border={'1px solid red'}>
-                    <Heading textAlign={'center'}>Total</Heading>
-                    <Text>Total price { }</Text>
-                </Box>
+                <OrderSummary data={cart} />
 
             </Grid>
         </>

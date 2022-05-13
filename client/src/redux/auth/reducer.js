@@ -1,4 +1,4 @@
-import { getItemFromLocal } from "../../helpers/localStorage";
+import { getItemFromLocal } from "../../utils/localStorage";
 import { GET_TOKEN_SUCCESS, REMOVE_TOKEN_SUCCESS } from "./actionTypes";
 
 

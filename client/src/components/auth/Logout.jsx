@@ -18,7 +18,7 @@ export const Logout = ({ name }) => {
     return (
         <>
             <Menu>
-                <MenuButton px={'10px'} mr={'2px'} as={Button} bg={'transparent'} rightIcon={<BsFillCaretDownFill />}>{name}</MenuButton>
+                <MenuButton border={'none'} px={'10px'} mr={'2px'} as={Button} bg={'transparent'} rightIcon={<BsFillCaretDownFill />}>{name}</MenuButton>
                 <MenuList>
                     <MenuItem my={'6px'} icon={<BsHeart />}><Link to={'/favourite'}>Favourite</Link></MenuItem>
                     <MenuItem my={'6px'} icon={<BsMinecartLoaded />}>My Orders</MenuItem>

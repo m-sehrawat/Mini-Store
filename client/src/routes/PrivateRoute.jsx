@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { getItemFromLocal } from "../helpers/localStorage";
+import { getItemFromLocal } from "../utils/localStorage";
 
 export const Private = ({ children }) => {
 

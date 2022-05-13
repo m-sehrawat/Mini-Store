@@ -1,4 +1,4 @@
-import { getItem } from "../../helpers/sessionStorage";
+import { getItem } from "../../utils/sessionStorage";
 import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, RESET_FILTER, SET_CATEGORY, SET_GENDER, SET_GRID, SET_PAGE, SET_SORT } from "./actionTypes";
 
 const initState = {

@@ -17,10 +17,10 @@ export const Section = ({ img, title, gender }) => {
 
     return (
         <Box>
-            <Box cursor={'pointer'} shadow={'lg'} borderRadius={'10%'} overflow={'hidden'}>
+            <Box cursor={'pointer'} className='shadow' overflow={'hidden'}>
                 <Image onClick={handleGenderChange} className="zoom" src={img} />
             </Box>
-            <Text mt={5} align={'center'} fontSize={25}>{title}</Text>
+            <Text color={'#0863be'} mt={5} align={'center'} fontWeight={700} fontSize={30}>{title}</Text>
         </Box>
     );
 };

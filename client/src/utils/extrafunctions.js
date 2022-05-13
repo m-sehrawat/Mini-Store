@@ -30,9 +30,17 @@ export const notify = (toast, title, status, description) => {
     });
 };
 
-export const deleteKeyFromObject = (obj, key)=> {
+export const deleteKeyFromObject = (obj, key) => {
     delete obj[key];
     return obj;
 }
 
-
+export const totalMRP = (arr) => {
+    let amount = 0;
+    let prodCount = 0;
+    for (let x of arr) {
+        amount += x.price;
+        prodCount = x.quantity;
+    }
+    return { amount, prodCount };
+}

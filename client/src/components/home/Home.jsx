@@ -7,7 +7,7 @@ export const Home = () => {
 
     return (
         <>
-            <Box  p={'20px'} mt={'20px'}>
+            <Box>
                 <SlideShow />
             </Box>
 
@@ -17,21 +17,21 @@ export const Home = () => {
                     gender={'men'}
                     title={"Men's Products"}
                     path={'/category/men'}
-                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/cacb7e977fda43e88809ac1e00f709ef_9366/Runner_Tee_Blue_GC6719_21_model.jpg"}
+                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20211031_LLSupply_00161_540x.jpg?v=1636495873"}
                 />
 
                 <Section
                     gender={'women'}
                     title={"Women's Products"}
                     path={'/category/women'}
-                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/d596368f54d548c78d45ac5b01835e33_9366/Ultimate_Bra_Blue_GP6781_22_model.jpg"}
+                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20211031_LLSupply_00446_540x.jpg?v=1636495899"}
                 />
 
                 <Section
                     gender={'kids'}
                     title={"Kid's Products"}
                     path={'/category/kids'}
-                    img={"https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy,c_fill,g_auto/30689ff7b9e542b6a46faafc00fd26bd_9366/Predator_20_Training_Gloves_Black_FH7294_01_standard.jpg"}
+                    img={"https://cdn.shopify.com/s/files/1/0882/5946/files/20210812_LLSupply_00003_900x.jpg?v=1630285650"}
                 />
 
             </Grid>

@@ -1,3 +1,4 @@
+import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -13,7 +14,7 @@ axios.defaults.baseURL = "http://localhost:5500";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <ReduxProvider store={store}>
         <Router>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />
