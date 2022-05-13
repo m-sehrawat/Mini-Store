@@ -1,6 +1,6 @@
 
 import { Box, Grid } from "@chakra-ui/react";
-import { Section } from "./MiniComponents";
+import { Section } from "./Section";
 import { SlideShow } from "./SlideShow";
 
 export const Home = () => {

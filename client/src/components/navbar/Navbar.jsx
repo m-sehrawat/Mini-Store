@@ -1,10 +1,10 @@
 import { Button, Center, Flex, Heading, Spacer, useColorMode } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { setItem } from "../helpers/sessionStorage";
-import { setGender } from "../redux/allProducts/actions";
-import { Logout } from "./Logout";
-import { BigIcon, NavButton } from "./MiniComponents";
+import { setItem } from "../../utils/sessionStorage";
+import { setGender } from "../../redux/allProducts/actions";
+import { Logout } from "../auth/Logout";
+import { BigIcon, NavButton } from "../theme/Theme";
 import { BsSun, BsMoonStars, BsCart, BsHeart } from 'react-icons/bs';
 import { FiLogIn, FiHome } from 'react-icons/fi';
 import { CgDisplayGrid } from 'react-icons/cg';

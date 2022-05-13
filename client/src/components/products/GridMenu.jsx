@@ -1,9 +1,9 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { gridSize } from "../helpers/extrafunctions";
-import { setItem } from "../helpers/sessionStorage";
-import { setGrid } from "../redux/allProducts/actions";
+import { gridSize } from "../../utils/extrafunctions";
+import { setItem } from "../../utils/sessionStorage";
+import { setGrid } from "../../redux/allProducts/actions";
 
 export const GridMenu = () => {
 

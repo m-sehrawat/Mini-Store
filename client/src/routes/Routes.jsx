@@ -1,14 +1,14 @@
 import { Box } from "@chakra-ui/react";
 import { Route, Routes } from "react-router-dom";
-import { Cart } from "../components/Cart";
-import { Favourite } from "../components/Favourite";
-import { Footer } from "../components/Footer";
-import { Home } from "../components/Home";
-import { Login } from "../components/Login";
-import { Navbar } from "../components/Navbar";
-import { ProductDetails } from "../components/ProductDetails";
-import { Products } from "../components/Products";
-import { Signup } from "../components/Signup";
+import { Login } from "../components/auth/Login";
+import { Signup } from "../components/auth/Signup";
+import { Cart } from "../components/cart/Cart";
+import { ProductDetails } from "../components/description/ProductDetails";
+import { Favourite } from "../components/favourite/Favourite";
+import { Footer } from "../components/footer/Footer";
+import { Home } from "../components/home/Home";
+import { Navbar } from "../components/navbar/Navbar";
+import { Products } from "../components/products/Products";
 import { Private } from "./PrivateRoute";
 
 export const Router = () => {

@@ -2,13 +2,13 @@ import { Box, Button, Image, Text, Flex, Grid, useToast } from "@chakra-ui/react
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getOneDataRequest } from "../redux/oneProduct/actions";
-import { Error } from "./Error";
-import { Loading } from "./Loading";
+import { getOneDataRequest } from "../../redux/oneProduct/actions";
+import { Error } from "../loading/Error";
+import { Loading } from "../loading/Loading";
 import { BsCart, BsHeart } from 'react-icons/bs';
-import { addFavouriteRequest } from "../redux/favouriteProducts/actions";
-import { addToCartRequest } from "../redux/cartProducts/actions";
-import { notify } from "../helpers/extrafunctions";
+import { addFavouriteRequest } from "../../redux/favouriteProducts/actions";
+import { addToCartRequest } from "../../redux/cartProducts/actions";
+import { notify } from "../../utils/extrafunctions";
 
 
 export const ProductDetails = () => {

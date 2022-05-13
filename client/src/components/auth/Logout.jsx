@@ -3,7 +3,7 @@ import { BsFillCaretDownFill, BsCart, BsHeart, BsMinecartLoaded } from "react-ic
 import { FiLogOut } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { logoutRequest } from "../redux/auth/actions";
+import { logoutRequest } from "../../redux/auth/actions";
 
 
 export const Logout = ({ name }) => {

@@ -1,7 +1,7 @@
 import { GET_DATA_ERROR, GET_DATA_LOADING, GET_DATA_SUCCESS, RESET_FILTER, SET_CATEGORY, SET_GENDER, SET_GRID, SET_PAGE, SET_SORT } from "./actionTypes";
 import axios from "axios";
-import { setItem } from "../../helpers/sessionStorage";
-import { notify } from "../../helpers/extrafunctions";
+import { setItem } from "../../utils/sessionStorage";
+import { notify } from "../../utils/extrafunctions";
 
 
 export const getDataLoading = () => {

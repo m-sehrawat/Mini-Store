@@ -1,7 +1,7 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsFillCaretDownFill } from "react-icons/bs";
 import { useDispatch } from "react-redux";
-import { setSort } from "../redux/allProducts/actions";
+import { setSort } from "../../redux/allProducts/actions";
 
 export const SortMenu = () => {
 

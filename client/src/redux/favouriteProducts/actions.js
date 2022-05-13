@@ -1,5 +1,5 @@
 import axios from "axios";
-import { notify } from "../../helpers/extrafunctions";
+import { notify } from "../../utils/extrafunctions";
 import { GET_FAVOURITE_ERROR, GET_FAVOURITE_LOADING, GET_FAVOURITE_SUCCESS } from "./actionTypes";
 
 

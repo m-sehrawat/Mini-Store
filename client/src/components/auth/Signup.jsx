@@ -2,7 +2,7 @@ import { Button, Container, Heading, Input, Select, Text, useToast, VStack } fro
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { signupRequest } from "../redux/auth/actions";
+import { signupRequest } from "../../redux/auth/actions";
 
 
 export const Signup = () => {

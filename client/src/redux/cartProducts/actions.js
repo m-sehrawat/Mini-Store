@@ -1,5 +1,5 @@
 import axios from "axios";
-import { notify } from "../../helpers/extrafunctions";
+import { notify } from "../../utils/extrafunctions";
 import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS } from "./actionTypes";
 
 

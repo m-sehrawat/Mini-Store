@@ -1,12 +1,12 @@
 import { Box, Button, Center, Flex, Grid, Heading, Text, useToast } from "@chakra-ui/react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { EmptyList } from "./EmptyList";
-import { FavouriteBox } from "./MiniComponents";
+import { EmptyList } from "../loading/EmptyList";
 import { useState, useEffect } from 'react';
 import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
-import { Loading } from "./Loading";
-import { Error } from "./Error";
-import { getFavouriteRequest, removeFavouriteRequest } from "../redux/favouriteProducts/actions";
+import { Loading } from "../loading/Loading";
+import { Error } from "../loading/Error";
+import { getFavouriteRequest, removeFavouriteRequest } from "../../redux/favouriteProducts/actions";
+import { FavouriteBox } from "./FavouriteBox";
 
 export const Favourite = () => {
 

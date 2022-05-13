@@ -1,17 +1,17 @@
 import { Grid, Flex, Button, HStack, Heading, Text, Center, Spacer, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { getAllDataRequest, resetFilter, setPage } from "../redux/allProducts/actions";
-import { Error } from "./Error";
-import { Loading } from "./Loading";
-import { ProductBox } from "./MiniComponents";
+import { getAllDataRequest, resetFilter, setPage } from "../../redux/allProducts/actions";
+import { Error } from "../loading/Error";
+import { Loading } from "../loading/Loading";
 import { SortMenu } from "./SortMenu";
 import { RiFullscreenFill, RiFullscreenExitLine } from "react-icons/ri";
 import { GridMenu } from "./GridMenu";
-import { EmptyList } from "./EmptyList";
+import { EmptyList } from "../loading/EmptyList";
 import { GenderMenu } from "./GenderMenu";
 import { CategoryMenu } from "./CategoryMenu";
-import { setItem } from "../helpers/sessionStorage";
+import { setItem } from "../../utils/sessionStorage";
+import { ProductBox } from "./ProductBox";
 
 export const Products = () => {
 

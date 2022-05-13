@@ -1,7 +1,7 @@
 import { GET_TOKEN_SUCCESS, REMOVE_TOKEN_SUCCESS } from "./actionTypes";
 import axios from 'axios';
-import { deleteKeyFromObject, notify } from "../../helpers/extrafunctions";
-import { removeItemToLocal, setItemToLocal } from "../../helpers/localStorage";
+import { deleteKeyFromObject, notify } from "../../utils/extrafunctions";
+import { removeItemToLocal, setItemToLocal } from "../../utils/localStorage";
 
 
 export const getTokenSuccess = (payload) => {

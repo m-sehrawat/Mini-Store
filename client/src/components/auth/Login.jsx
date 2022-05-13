@@ -2,7 +2,7 @@ import { Button, Container, Heading, Input, Text, useToast, VStack } from "@chak
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
-import { loginRequest } from "../redux/auth/actions";
+import { loginRequest } from "../../redux/auth/actions";
 
 export const Login = () => {
 

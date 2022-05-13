@@ -1,11 +1,12 @@
 import { Box, Center, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { getCartDataRequest } from "../redux/cartProducts/actions";
-import { EmptyList } from "./EmptyList";
-import { Error } from "./Error";
-import { Loading } from "./Loading";
-import { CartBox } from "./MiniComponents";
+import { getCartDataRequest } from "../../redux/cartProducts/actions";
+import { CartBox } from "./CartBox";
+import { EmptyList } from "../loading/EmptyList";
+import { Error } from "../loading/Error";
+import { Loading } from "../loading/Loading";
+
 
 export const Cart = () => {
 
@@ -44,7 +45,7 @@ export const Cart = () => {
 
                 <Box border={'1px solid red'}>
                     <Heading textAlign={'center'}>Total</Heading>
-                    <Text>Total price {}</Text>
+                    <Text>Total price { }</Text>
                 </Box>
 
             </Grid>
