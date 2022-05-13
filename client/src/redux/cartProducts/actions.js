@@ -1,6 +1,6 @@
 import axios from "axios";
-import { notify } from "../../utils/extrafunctions";
-import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS } from "./actionTypes";
+import { cartTotalAmount, notify } from "../../utils/extrafunctions";
+import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL } from "./actionTypes";
 
 
 export const addToCartLoading = () => {
@@ -13,6 +13,10 @@ export const addToCartSuccess = (payload) => {
 
 export const addToCartError = () => {
     return { type: ADD_TO_CART_ERROR };
+};
+
+export const setCartTotal = (payload) => {
+    return { type: SET_CART_TOTAL, payload };
 };
 
 
@@ -29,7 +33,13 @@ export const getCartDataRequest = (token) => async (dispatch) => {
     try {
         dispatch(addToCartLoading());
         let res = await axios.get("/cart", { headers: { 'Authorization': `Bearer ${token}` } });
-        dispatch(addToCartSuccess(res.data));
+        res = res.data;
+        dispatch(addToCartSuccess(res));
+        const payload = cartTotalAmount(res);
+        console.log('payload:', payload)
+        let response = await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
+        console.log('response:', response.data)
+        dispatch(setCartTotal(payload));
     } catch (err) {
         console.log(err.response.data);
         dispatch(addToCartError());

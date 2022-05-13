@@ -1,4 +1,4 @@
-import { Box, Button, Center, Divider, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, Heading, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
@@ -13,7 +13,7 @@ export const Cart = () => {
 
     const dispatch = useDispatch();
     const token = useSelector((state) => state.authReducer.token);
-    const { isLoading, isError, cart } = useSelector((state) => state.cartReducer, shallowEqual);
+    const { isLoading, isError, cart, amount } = useSelector((state) => state.cartReducer, shallowEqual);
 
     useEffect(() => {
         dispatch(getCartDataRequest(token));
@@ -48,7 +48,7 @@ export const Cart = () => {
                     </Flex>}
                 </Box>
 
-                <OrderSummary data={cart} />
+                <OrderSummary data={amount} />
 
             </Grid>
         </>

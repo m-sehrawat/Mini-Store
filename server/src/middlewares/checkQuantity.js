@@ -1,11 +1,10 @@
 const Cart = require('../models/cart.model');
+
 const { renameObjectKey } = require('../utils/extraFunctions');
 
 
 module.exports = async (req, res, next) => {
-
     try {
-
         const match = await Cart.find({ $and: [{ user: req.user._id }, { productId: req.body._id }] }).lean().exec();
 
         if (match.length !== 0) {

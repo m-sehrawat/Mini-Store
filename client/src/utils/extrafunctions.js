@@ -35,12 +35,21 @@ export const deleteKeyFromObject = (obj, key) => {
     return obj;
 }
 
-export const totalMRP = (arr) => {
-    let amount = 0;
-    let prodCount = 0;
+export const cartTotalAmount = (arr) => {
+
+    let discount = 0;
+    let productCount = 0;
+    let shippingCharges = 0;
+    let totalMRP = 0;
+    let payableAmount = 0;
+
     for (let x of arr) {
-        amount += x.price;
-        prodCount = x.quantity;
+        totalMRP += x.price;
+        productCount += x.quantity;
     }
-    return { amount, prodCount };
+    shippingCharges = totalMRP < 999 ? 100 : 0;
+    payableAmount = totalMRP - discount + shippingCharges;
+
+    return { discount, productCount, shippingCharges, totalMRP, payableAmount };
 }
+

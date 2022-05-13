@@ -23,6 +23,17 @@ const postCart = (model) => async (req, res) => {
     }
 };
 
+const postAmount = (model) => async (req, res) => {
+    try {
+        const item = await model.create({ ...req.body, user: req.user._id });
+
+        return res.status(201).send(item);
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
 const getAllFavourite = (model) => async (req, res) => {
     try {
         const item = await model.find({ user: req.user._id }).lean().exec();
@@ -37,6 +48,17 @@ const getAllFavourite = (model) => async (req, res) => {
 const getOne = (model) => async (req, res) => {
     try {
         const item = await model.findById(req.params.id).lean().exec();
+
+        return res.status(201).send(item);
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
+const getAmount = (model) => async (req, res) => {
+    try {
+        const item = await model.findOne({ user: req.user._id }).lean().exec();
 
         return res.status(201).send(item);
 
@@ -84,4 +106,12 @@ const deleteOne = (model) => async (req, res) => {
 }
 
 
-module.exports = { postFavourite,postCart, getAllFavourite, getAllPaginated, getOne, deleteOne };
+module.exports = {
+    postFavourite,
+    postCart,
+    postAmount,
+    getAmount,
+    getAllFavourite,
+    getAllPaginated,
+    getOne, deleteOne
+};
