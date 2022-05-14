@@ -55,6 +55,8 @@ export const getCartDataRequest = (token, toast, couponCode, removeCoupon = fals
         }
 
         if(removeCoupon){
+            await axios.patch(`/coupon`, { couponCode : getItem("coupon")?.couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
+            notify(toast, "Coupon removed successfully", 'success');
             coupon = { discountValue: 0 };
             removeItemSession("coupon");
         }

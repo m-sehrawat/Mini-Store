@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
     const bearerToken = req?.headers?.authorization;
 
     if (!bearerToken || !bearerToken.startsWith("Bearer ")) {
-        return res.status(400).json({ status: "Failed dfdfd", message: "Please provide a valid token" });
+        return res.status(400).json({ status: "Failed", message: "Please provide a valid token" });
     }
 
     const token = bearerToken.split(" ")[1];

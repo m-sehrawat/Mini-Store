@@ -139,6 +139,23 @@ const updateCoupon = (model) => async (req, res) => {
     }
 };
 
+const removeCoupon = (model) => async (req, res) => {
+    try {
+        const coupon = await model.findOne({ couponCode: req.body.couponCode }).lean().exec();
+
+        if (!coupon) {
+            return res.status(400).json({ status: "Failed", message: "Invalid Coupon Code" });
+        }
+
+        const item = await model.findByIdAndUpdate(coupon._id, { user: coupon.user.filter((e)=> e != req.user._id) }, { new: true }).lean().exec();
+
+        return res.status(201).json({ couponCode: item.couponCode, discountValue: item.discountValue });
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
 
 module.exports = {
     postFavourite,
@@ -150,5 +167,6 @@ module.exports = {
     getOne,
     updateOne,
     deleteOne,
-    updateCoupon
+    updateCoupon,
+    removeCoupon
 };

@@ -15,6 +15,9 @@ export const OrderSummary = ({ data }) => {
     const token = useSelector((state) => state.authReducer.token);
 
     const handleCouponDiscount = () => {
+        if(totalMRP === 0){
+            return notify(toast, "Please add some products to the cart", "info");
+        }
         dispatch(getCartDataRequest(token, toast, couponCode));
     };
 
@@ -22,7 +25,7 @@ export const OrderSummary = ({ data }) => {
         if(!getItem("coupon")){
            return notify(toast, "No coupon is applied", "info");
         }
-        dispatch(getCartDataRequest(token, toast, couponCode, true));
+        dispatch(getCartDataRequest(token, toast, "", true));
     };
 
 
