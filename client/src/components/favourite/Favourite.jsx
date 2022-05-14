@@ -17,8 +17,7 @@ export const Favourite = () => {
     const token = useSelector((state) => state.authReducer.token);
 
     const handleRemoveFavourite = (id) => {
-        dispatch(removeFavouriteRequest(id, toast, token));
-        
+        dispatch(removeFavouriteRequest(id, toast, token));  
     }
 
     useEffect(() => {
