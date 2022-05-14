@@ -12,7 +12,7 @@ const postItem = (model) => async (req, res) => {
     }
 };
 
-const getAllFavourite = (model) => async (req, res) => {
+const getAllItems = (model) => async (req, res) => {
     try {
         const item = await model.find({ user: req.user._id }).lean().exec();
 
@@ -138,7 +138,7 @@ const removeCoupon = (model) => async (req, res) => {
 module.exports = {
     postItem,
     getAmount,
-    getAllFavourite,
+    getAllItems,
     getAllPaginated,
     getOne,
     updateOne,

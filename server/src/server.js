@@ -1,9 +1,9 @@
-const connect = require("./configs/db");
+const mongoConnect = require("./configs/db");
 const app = require("./index");
 
-const port = process.env.PORT || 5500
+const port = process.env.PORT || 5500;
 
 app.listen(port, async () => {
-    await connect();
+    await mongoConnect();
     console.log(`listening to port ${port}`);
 });

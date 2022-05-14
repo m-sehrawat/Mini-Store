@@ -1,9 +1,10 @@
 import { Box, Button, Container, Divider, Flex, Input, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { setShippingAddressRequest } from "../../redux/cartProducts/actions";
-import { addressValidator } from "../../utils/extrafunctions";
+import { addressValidator, notify, productRequiredData } from "../../utils/extrafunctions";
+import { OrderPlaced } from "../loading/OrderPlaced";
 
 export const Checkout = () => {
 
@@ -18,9 +19,11 @@ export const Checkout = () => {
     }
 
     const [shippingData, setShippingData] = useState(initState);
+    const [orderPlaced, setOrderPlaced] = useState(false);
     const toast = useToast();
     const dispatch = useDispatch();
     const token = useSelector((state) => state.authReducer.token);
+    const { cart, amount } = useSelector((state) => state.cartReducer, shallowEqual);
 
     const handleInputChange = ({ target: { name, value } }) => {
         setShippingData({ ...shippingData, [name]: value });
@@ -28,9 +31,16 @@ export const Checkout = () => {
 
     const handlePlaceOrder = () => {
         if (addressValidator(shippingData, toast)) {
-            dispatch(setShippingAddressRequest(shippingData, token, toast));
-            console.log(shippingData);
+            dispatch(setShippingAddressRequest(shippingData, amount, productRequiredData(cart), token, toast));
+            setTimeout(() => {
+                setOrderPlaced(true);
+                notify(toast, "Order placed successfully", "success");
+            }, 2000);
         }
+    };
+
+    if (orderPlaced) {
+        return <OrderPlaced />;
     }
 
     return (
@@ -48,7 +58,6 @@ export const Checkout = () => {
                         <Input onChange={handleInputChange} name="state" type={'text'} placeholder='State*' />
                         <Input onChange={handleInputChange} name="pincode" type={'number'} placeholder='Pincode*' />
                     </Flex>
-
                     <Button onClick={handlePlaceOrder} variant={'solid'}>Place Order</Button>
                     <Button><Link to={'/cart'}>Check cart products</Link></Button>
                 </Flex>

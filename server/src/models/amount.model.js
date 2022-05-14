@@ -1,11 +1,13 @@
 const { Schema, model } = require('mongoose');
 
+const reqNumber = { type: Number, required: true };
+
 const amountSchema = new Schema({
-    discount: { type: Number, required: true },
-    productCount: { type: Number, required: true },
-    shippingCharges: { type: Number, required: true },
-    totalMRP: { type: Number, required: true },
-    payableAmount: { type: Number, required: true },
+    discount: reqNumber,
+    productCount: reqNumber,
+    shippingCharges: reqNumber,
+    totalMRP: reqNumber,
+    payableAmount: reqNumber,
     user: {
         type: Schema.Types.ObjectId,
         ref: "user",

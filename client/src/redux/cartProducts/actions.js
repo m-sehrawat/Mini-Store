@@ -101,11 +101,14 @@ export const updateQuantityInCartRequest = (id, payload, token, toast) => async 
     }
 }
 
-export const setShippingAddressRequest = (payload, token, toast) => async (dispatch) => {
+export const setShippingAddressRequest = (payload, amount, product, token, toast) => async (dispatch) => {
     try {
         let res = await axios.post("/address", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(setShippingAddress(res.data));
         notify(toast, "Address added successfully", "success");
+
+        const details = { address: res.data._id, amount, product };
+        await axios.post("/orders", details, { headers: { 'Authorization': `Bearer ${token}` } });
     } catch (err) {
         console.log(err.response.data);
         notify(toast, "Something went wrong", "error");

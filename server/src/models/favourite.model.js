@@ -1,17 +1,21 @@
 const { Schema, model } = require('mongoose');
 
+const reqArray = { type: Array, required: true };
+const reqString = { type: String, required: true };
+const reqNumber = { type: Number, required: true };
+
 const favouriteSchema = new Schema({
-    img: { type: Array, required: true },
-    name: { type: String, required: true },
-    description: { type: String, required: true },
-    category: { type: String, required: true },
-    price: { type: Number, required: true },
-    size: { type: Array, required: true },
-    rating: { type: Number, required: true },
-    gender: { type: String, required: true },
-    brand: { type: String, required: true },
-    collections: { type: String, required: true },
-    productId: { type: String, required: true },
+    img: reqArray,
+    name: reqString,
+    description: reqString,
+    category: reqString,
+    price: reqNumber,
+    size: reqArray,
+    rating: reqNumber,
+    gender: reqString,
+    brand: reqString,
+    collections: reqString,
+    productId: reqString,
     user: {
         type: Schema.Types.ObjectId,
         ref: "user",

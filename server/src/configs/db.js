@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+const { connect } = require('mongoose');
+require('dotenv').config();
 
 module.exports = () => {
-    return mongoose.connect(
-        "mongodb+srv://admin:admin@cluster0.mhpha.mongodb.net/Mini-Store",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    );
+    return connect(process.env.MONGO_PATH, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        useFindAndModify: false,
+    });
 }

@@ -86,3 +86,12 @@ export const addressValidator = (obj, toast) => {
         return true;
     }
 }
+
+export const productRequiredData = (arr) => {
+    let newArray = [];
+    for (let x of arr) {
+        let { img, name, price, quantity, productId } = x;
+        newArray.push({ img: img[0], name, price, quantity, productId });
+    }
+    return newArray;
+}
