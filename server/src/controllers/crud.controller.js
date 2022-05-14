@@ -1,29 +1,7 @@
 const { sortValue, getGender, getCategory } = require('../utils/extraFunctions');
 
 
-const postFavourite = (model) => async (req, res) => {
-    try {
-        const item = await model.create({ ...req.body, user: req.user._id });
-
-        return res.status(201).send(item);
-
-    } catch (e) {
-        return res.status(500).json({ message: e.message, status: "Failed" });
-    }
-};
-
-const postCart = (model) => async (req, res) => {
-    try {
-        const item = await model.create({ ...req.body, user: req.user._id });
-
-        return res.status(201).send(item);
-
-    } catch (e) {
-        return res.status(500).json({ message: e.message, status: "Failed" });
-    }
-};
-
-const postAmount = (model) => async (req, res) => {
+const postItem = (model) => async (req, res) => {
     try {
         const item = await model.create({ ...req.body, user: req.user._id });
 
@@ -158,9 +136,7 @@ const removeCoupon = (model) => async (req, res) => {
 
 
 module.exports = {
-    postFavourite,
-    postCart,
-    postAmount,
+    postItem,
     getAmount,
     getAllFavourite,
     getAllPaginated,

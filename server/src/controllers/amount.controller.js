@@ -4,12 +4,12 @@ const checkDuplicateAmount = require('../middlewares/checkDuplicateAmount');
 
 const Amount = require('../models/amount.model');
 
-const { postAmount, getAmount } = require('./crud.controller');
+const { getAmount, postItem } = require('./crud.controller');
 
 const router = require('express').Router();
 
 
-router.post("/", [authorization, checkDuplicateAmount], postAmount(Amount));
+router.post("/", [authorization, checkDuplicateAmount], postItem(Amount));
 
 router.get("/", authorization, getAmount(Amount));
 

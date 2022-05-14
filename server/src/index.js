@@ -14,6 +14,7 @@ const favouriteController = require("./controllers/favourite.controller");
 const cartController = require("./controllers/cart.controller");
 const amountController = require("./controllers/amount.controller");
 const couponController = require("./controllers/coupon.controller");
+const addressController = require("./controllers/address.controller");
 
 app.post("/signup", Signup);
 
@@ -29,5 +30,7 @@ app.use("/amount", amountController);
 
 app.use("/coupon", couponController);
 
+app.use("/address", addressController);
 
-module.exports = app;
+
+module.exports = app; 

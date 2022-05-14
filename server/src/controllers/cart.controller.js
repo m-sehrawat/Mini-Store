@@ -1,12 +1,11 @@
 const authorization = require('../middlewares/authorization');
 const checkQuantity = require('../middlewares/checkQuantity');
 const Cart = require('../models/cart.model');
-
-const { postCart, getAllFavourite,updateOne, deleteOne } = require('./crud.controller');
-
+const { getAllFavourite, updateOne, deleteOne, postItem } = require('./crud.controller');
 const router = require('express').Router();
 
-router.post("/", [authorization, checkQuantity], postCart(Cart));
+
+router.post("/", [authorization, checkQuantity], postItem(Cart));
 
 router.get("/", authorization, getAllFavourite(Cart));
 
