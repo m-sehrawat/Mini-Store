@@ -4,4 +4,6 @@ const { postItem } = require('./crud.controller');
 
 const router = require('express').Router();
 
-router.post("/address", authorization, postItem(Address));
+router.post("/", authorization, postItem(Address));
+
+module.exports = router;

@@ -1,4 +1,4 @@
-import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL } from "./actionTypes";
+import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL, SET_SHIPPING_ADDRESS } from "./actionTypes";
 
 const initState = {
     isLoading: false,
@@ -10,6 +10,15 @@ const initState = {
         shippingCharges: 0,
         totalMRP: 0,
         payableAmount: 0
+    },
+    address: {
+        fullName: "",
+        mobile: "",
+        streetAddress: "",
+        landmark: "",
+        city: "",
+        state: "",
+        pincode: ""
     }
 }
 
@@ -30,6 +39,19 @@ export const cartReducer = (state = initState, { type, payload }) => {
                     shippingCharges: payload.shippingCharges,
                     totalMRP: payload.totalMRP,
                     payableAmount: payload.payableAmount
+                }
+            };
+        case SET_SHIPPING_ADDRESS:
+            return {
+                ...state,
+                address: {
+                    fullName: payload.fullName,
+                    mobile: payload.mobile,
+                    streetAddress: payload.streetAddress,
+                    landmark: payload.landmark,
+                    city: payload.city,
+                    state: payload.state,
+                    pincode: payload.pincode
                 }
             };
         default:

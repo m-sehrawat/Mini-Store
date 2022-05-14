@@ -1,7 +1,7 @@
 import axios from "axios";
 import { cartTotalAmount, notify } from "../../utils/extrafunctions";
 import { getItem, removeItemSession, setItem } from "../../utils/sessionStorage";
-import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL } from "./actionTypes";
+import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL, SET_SHIPPING_ADDRESS } from "./actionTypes";
 
 
 export const addToCartLoading = () => {
@@ -19,6 +19,10 @@ export const addToCartError = () => {
 export const setCartTotal = (payload) => {
     return { type: SET_CART_TOTAL, payload };
 };
+
+export const setShippingAddress = (payload) => {
+    return { type: SET_SHIPPING_ADDRESS, payload };
+}
 
 
 export const addToCartRequest = (payload, token, toast) => async () => {
@@ -54,8 +58,8 @@ export const getCartDataRequest = (token, toast, couponCode, removeCoupon = fals
             }
         }
 
-        if(removeCoupon){
-            await axios.patch(`/coupon`, { couponCode : getItem("coupon")?.couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
+        if (removeCoupon) {
+            await axios.patch(`/coupon`, { couponCode: getItem("coupon")?.couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
             notify(toast, "Coupon removed successfully", 'success');
             coupon = { discountValue: 0 };
             removeItemSession("coupon");
@@ -93,6 +97,17 @@ export const updateQuantityInCartRequest = (id, payload, token, toast) => async 
     } catch (err) {
         console.log(err.response.data);
         dispatch(addToCartError());
+        notify(toast, "Something went wrong", "error");
+    }
+}
+
+export const setShippingAddressRequest = (payload, token, toast) => async (dispatch) => {
+    try {
+        let res = await axios.post("/address", payload, { headers: { 'Authorization': `Bearer ${token}` } });
+        dispatch(setShippingAddress(res.data));
+        notify(toast, "Address added successfully", "success");
+    } catch (err) {
+        console.log(err.response.data);
         notify(toast, "Something went wrong", "error");
     }
 }

@@ -54,3 +54,35 @@ export const cartTotalAmount = (arr, coupon) => {
     return { discount, productCount, shippingCharges, totalMRP, payableAmount };
 }
 
+export const addressValidator = (obj, toast) => {
+
+    const { fullName, mobile, streetAddress, city, state, pincode } = obj;
+
+    if (fullName.length < 3) {
+        notify(toast, "Please add a valid name", "error");
+        return false;
+
+    } else if (mobile.length !== 10) {
+        notify(toast, "Please add 10 digit mobile number", "error");
+        return false;
+
+    } else if (streetAddress.length < 3) {
+        notify(toast, "Please add a valid Street Address", "error");
+        return false;
+
+    } else if (city.length < 3) {
+        notify(toast, "Please add a valid city", "error");
+        return false;
+
+    } else if (state.length < 3) {
+        notify(toast, "Please add a valid state", "error");
+        return false;
+
+    } else if (pincode.length !== 6) {
+        notify(toast, "Please add a valid 6 digit pincode", "error");
+        return false;
+
+    } else {
+        return true;
+    }
+}
