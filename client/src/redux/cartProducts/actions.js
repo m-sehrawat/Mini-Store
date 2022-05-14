@@ -1,5 +1,6 @@
 import axios from "axios";
 import { cartTotalAmount, notify } from "../../utils/extrafunctions";
+import { getItem, setItem } from "../../utils/sessionStorage";
 import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL } from "./actionTypes";
 
 
@@ -36,19 +37,24 @@ export const getCartDataRequest = (token, toast, couponCode) => async (dispatch)
         res = res.data;
         dispatch(addToCartSuccess(res));
 
-        let coupon = 0;
-        if (couponCode) {
+        let coupon = getItem("coupon") || { discountValue: 0 };
+
+        if (!!getItem("coupon")) {
+            notify(toast, "Only one coupon is allowed per order", 'error');
+            
+        } else if (couponCode) {
             try {
                 coupon = await axios.post("/coupon", { couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
-                coupon = coupon.data.discountValue;
+                coupon = coupon.data;
+                setItem("coupon", coupon);
                 notify(toast, "Coupon applied successfully", 'success');
             } catch (err) {
                 console.log(err.response.data);
-                notify(toast, err.response.data, 'error');
+                notify(toast, err.response.data.message, 'error');
             }
         }
 
-        const payload = cartTotalAmount(res, coupon);
+        const payload = cartTotalAmount(res, coupon.discountValue);
         await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(setCartTotal(payload));
 

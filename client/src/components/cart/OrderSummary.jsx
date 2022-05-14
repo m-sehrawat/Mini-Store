@@ -3,6 +3,7 @@ import { numberWithCommas } from "../../utils/extrafunctions";
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
+import { getItem } from "../../utils/sessionStorage";
 
 export const OrderSummary = ({ data }) => {
 
@@ -27,6 +28,7 @@ export const OrderSummary = ({ data }) => {
                 <PriceText title={'Quantity'} num={productCount} />
                 <Divider />
                 <PriceText title={'Coupon Discount'} num={`₹ ${numberWithCommas(discount)}`} />
+                {getItem("coupon") && <PriceText title={'Coupon Code'} num={`${getItem("coupon")?.couponCode}`} />}
                 <Divider />
                 <PriceText fs={'23px'} fw={600} title={'Amount Payable'} num={`₹ ${numberWithCommas(payableAmount)}`} />
                 <Divider />

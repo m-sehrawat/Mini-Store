@@ -1,4 +1,5 @@
 const authorization = require('../middlewares/authorization');
+
 const Coupon = require('../models/coupon.model');
 
 const { updateCoupon } = require('./crud.controller');
