@@ -1,4 +1,4 @@
-import { Box, Button, Center, Flex, Grid, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Center, Flex, Grid, Heading, Text, useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
@@ -13,12 +13,13 @@ import { Link } from 'react-router-dom';
 export const Cart = () => {
 
     const dispatch = useDispatch();
+    const toast = useToast();
     const token = useSelector((state) => state.authReducer.token);
     const { isLoading, isError, cart, amount } = useSelector((state) => state.cartReducer, shallowEqual);
 
     useEffect(() => {
-        dispatch(getCartDataRequest(token));
-    }, [dispatch, token])
+        dispatch(getCartDataRequest(token, toast));
+    }, [dispatch, token, toast])
 
 
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { cartTotalAmount, notify } from "../../utils/extrafunctions";
-import { getItem, setItem } from "../../utils/sessionStorage";
+import { getItem, removeItemSession, setItem } from "../../utils/sessionStorage";
 import { ADD_TO_CART_ERROR, ADD_TO_CART_LOADING, ADD_TO_CART_SUCCESS, SET_CART_TOTAL } from "./actionTypes";
 
 
@@ -30,7 +30,7 @@ export const addToCartRequest = (payload, token, toast) => async () => {
     }
 };
 
-export const getCartDataRequest = (token, toast, couponCode) => async (dispatch) => {
+export const getCartDataRequest = (token, toast, couponCode, removeCoupon = false) => async (dispatch) => {
     try {
         dispatch(addToCartLoading());
         let res = await axios.get("/cart", { headers: { 'Authorization': `Bearer ${token}` } });
@@ -39,9 +39,9 @@ export const getCartDataRequest = (token, toast, couponCode) => async (dispatch)
 
         let coupon = getItem("coupon") || { discountValue: 0 };
 
-        if (!!getItem("coupon")) {
+        if (couponCode && !!getItem("coupon")) {
             notify(toast, "Only one coupon is allowed per order", 'error');
-            
+
         } else if (couponCode) {
             try {
                 coupon = await axios.post("/coupon", { couponCode }, { headers: { 'Authorization': `Bearer ${token}` } });
@@ -54,12 +54,17 @@ export const getCartDataRequest = (token, toast, couponCode) => async (dispatch)
             }
         }
 
+        if(removeCoupon){
+            coupon = { discountValue: 0 };
+            removeItemSession("coupon");
+        }
+
         const payload = cartTotalAmount(res, coupon.discountValue);
         await axios.post("/amount", payload, { headers: { 'Authorization': `Bearer ${token}` } });
         dispatch(setCartTotal(payload));
 
     } catch (err) {
-        console.log(err.response.data);
+        console.log(err);
         dispatch(addToCartError());
     }
 }

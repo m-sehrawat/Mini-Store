@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Flex, Input, Text, useToast } from "@chakra-ui/react";
-import { numberWithCommas } from "../../utils/extrafunctions";
+import { notify, numberWithCommas } from "../../utils/extrafunctions";
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
@@ -16,7 +16,15 @@ export const OrderSummary = ({ data }) => {
 
     const handleCouponDiscount = () => {
         dispatch(getCartDataRequest(token, toast, couponCode));
-    }
+    };
+
+    const handleRemoveCoupon = () => {
+        if(!getItem("coupon")){
+           return notify(toast, "No coupon is applied", "info");
+        }
+        dispatch(getCartDataRequest(token, toast, couponCode, true));
+    };
+
 
     return (
         <>
@@ -36,6 +44,7 @@ export const OrderSummary = ({ data }) => {
                 <Flex mt={'30px'} gap={'15px'} flexDirection={'column'}>
                     <Input onChange={(e) => { setCouponCode(e.target.value) }} type={'text'} placeholder='Coupon Code' />
                     <Button onClick={handleCouponDiscount} w={'100%'}>Apply Coupon</Button>
+                    <Button color={'red'} borderColor={'red'} _hover={{ 'bg': 'red', 'color': 'white' }} onClick={handleRemoveCoupon} w={'100%'}>Remove Coupon</Button>
                 </Flex>
             </Box>
         </>
