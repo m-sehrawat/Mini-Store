@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getCartDataRequest } from "../../redux/cartProducts/actions";
 import { getItem } from "../../utils/sessionStorage";
+import { PriceText } from "../theme/Theme";
 
 export const OrderSummary = ({ data }) => {
 
@@ -15,15 +16,15 @@ export const OrderSummary = ({ data }) => {
     const token = useSelector((state) => state.authReducer.token);
 
     const handleCouponDiscount = () => {
-        if(totalMRP === 0){
+        if (totalMRP === 0) {
             return notify(toast, "Please add some products to the cart", "info");
         }
         dispatch(getCartDataRequest(token, toast, couponCode));
     };
 
     const handleRemoveCoupon = () => {
-        if(!getItem("coupon")){
-           return notify(toast, "No coupon is applied", "info");
+        if (!getItem("coupon")) {
+            return notify(toast, "No coupon is applied", "info");
         }
         dispatch(getCartDataRequest(token, toast, "", true));
     };
@@ -54,14 +55,3 @@ export const OrderSummary = ({ data }) => {
     );
 };
 
-export const PriceText = ({ title, num, fs = '20px', fw }) => {
-
-    return (
-        <>
-            <Flex fontWeight={fw} fontSize={fs} my={'15px'} justify={'space-between'}>
-                <Text>{title}</Text>
-                <Text>{num}</Text>
-            </Flex>
-        </>
-    );
-};

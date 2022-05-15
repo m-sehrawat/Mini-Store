@@ -1,7 +1,7 @@
 import { Box, Button, Container, Divider, Flex, Input, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setShippingAddressRequest } from "../../redux/cartProducts/actions";
 import { addressValidator, notify, productRequiredData } from "../../utils/extrafunctions";
 import { OrderPlaced } from "../loading/OrderPlaced";
@@ -21,6 +21,7 @@ export const Checkout = () => {
     const [shippingData, setShippingData] = useState(initState);
     const [orderPlaced, setOrderPlaced] = useState(false);
     const toast = useToast();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const token = useSelector((state) => state.authReducer.token);
     const { cart, amount } = useSelector((state) => state.cartReducer, shallowEqual);
@@ -35,6 +36,9 @@ export const Checkout = () => {
             setTimeout(() => {
                 setOrderPlaced(true);
                 notify(toast, "Order placed successfully", "success");
+                setTimeout(() => {
+                    navigate("/");
+                }, 5000);
             }, 2000);
         }
     };

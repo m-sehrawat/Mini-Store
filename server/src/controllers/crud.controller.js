@@ -23,6 +23,17 @@ const getAllItems = (model) => async (req, res) => {
     }
 };
 
+const getAllOrders = (model) => async (req, res) => {
+    try {
+        const item = await model.find({ user: req.user._id }).populate("address").lean().exec();
+
+        return res.status(201).send(item);
+
+    } catch (e) {
+        return res.status(500).json({ message: e.message, status: "Failed" });
+    }
+};
+
 const getOne = (model) => async (req, res) => {
     try {
         const item = await model.findById(req.params.id).lean().exec();
@@ -139,6 +150,7 @@ module.exports = {
     postItem,
     getAmount,
     getAllItems,
+    getAllOrders,
     getAllPaginated,
     getOne,
     updateOne,

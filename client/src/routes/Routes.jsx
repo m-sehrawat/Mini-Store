@@ -9,6 +9,7 @@ import { Favourite } from "../components/favourite/Favourite";
 import { Footer } from "../components/footer/Footer";
 import { Home } from "../components/home/Home";
 import { Navbar } from "../components/navbar/Navbar";
+import { Order } from "../components/orders/Order";
 import { Products } from "../components/products/Products";
 import { Private } from "./PrivateRoute";
 
@@ -25,9 +26,10 @@ export const Router = () => {
                     <Route path="/signup" element={<Signup />} />
                     <Route path="/products" element={<Products />} />
                     <Route path="/products/:id" element={<ProductDetails />} />
+                    <Route path="/favourite" element={<Private><Favourite /></Private>} />
                     <Route path="/cart" element={<Private><Cart /></Private>} />
                     <Route path="/checkout" element={<Private><Checkout /></Private>} />
-                    <Route path="/favourite" element={<Private><Favourite /></Private>} />
+                    <Route path="/orders" element={<Private><Order /></Private>} />
                 </Routes>
             </Box>
 

@@ -39,7 +39,7 @@ export const SlideShow = () => {
         return () => {
             clearInterval(timerId);
         }
-    }, []);
+    }, [arr.length]);
 
     return (
         <Box className="slide shadow" backgroundImage={arr[index]} backgroundRepeat={'no-repeat'} backgroundSize={'cover'} h={['300px', '400px', '500px', '700px', '900px']}>

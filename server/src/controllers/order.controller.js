@@ -1,11 +1,11 @@
 const authorization = require('../middlewares/authorization');
 const Order = require('../models/order.model');
-const { postItem, getAllItems } = require('./crud.controller');
+const { postItem, getAllOrders } = require('./crud.controller');
 
 const router = require('express').Router();
 
 router.post("/",authorization, postItem(Order));
 
-router.post("/", authorization, getAllItems(Order));
+router.get("/", authorization, getAllOrders(Order));
 
 module.exports = router;
