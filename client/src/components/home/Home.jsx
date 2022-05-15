@@ -2,6 +2,7 @@ import { Box, Flex, Grid } from "@chakra-ui/react";
 import { MainText, Section } from "./Section";
 import { SlideShow } from "./SlideShow";
 
+
 export const Home = () => {
 
     return (

@@ -22,7 +22,6 @@ export const Cart = () => {
     }, [dispatch, token, toast])
 
 
-
     return isLoading ? (
         <Loading />
     ) : isError ? (
@@ -51,7 +50,6 @@ export const Cart = () => {
                 </Box>
 
                 <OrderSummary data={amount} />
-
             </Grid>
         </>
     );

@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { setItem } from "../../utils/sessionStorage";
 import { setGender } from "../../redux/allProducts/actions";
 
+
 export const Section = ({ img, title, gender }) => {
 
     const dispatch = useDispatch();
@@ -51,6 +52,7 @@ export const MainText = ({ title }) => {
         </Text>
     );
 };
+
 
 export const SlideText = ({ title, path }) => {
     return (

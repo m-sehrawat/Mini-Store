@@ -11,7 +11,6 @@ export const Login = () => {
     const toast = useToast();
     const navigate = useNavigate();
 
-
     const handleChange = ({ target: { name, value } }) => {
         setLogin({ ...login, [name]: value });
     }

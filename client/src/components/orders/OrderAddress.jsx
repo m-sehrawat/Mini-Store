@@ -4,6 +4,7 @@ import { AddressText } from "../theme/Theme";
 export const OrderAddress = ({ address }) => {
 
     const { fullName, mobile, streetAddress, landmark, city, state, pincode } = address;
+
     return (
         <>
             <Box className="shadow" py={'15px'} px={'25px'}>
@@ -16,8 +17,6 @@ export const OrderAddress = ({ address }) => {
                 <AddressText title={'City :'} value={city} />
                 <AddressText title={'State :'} value={state} />
                 <AddressText title={'Pincode :'} value={pincode} />
-
-
             </Box>
         </>
     );

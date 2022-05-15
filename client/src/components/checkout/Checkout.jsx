@@ -8,21 +8,14 @@ import { OrderPlaced } from "../loading/OrderPlaced";
 
 export const Checkout = () => {
 
-    const initState = {
-        fullName: "",
-        mobile: "",
-        streetAddress: "",
-        landmark: "",
-        city: "",
-        state: "",
-        pincode: ""
-    }
-
+    const initState = { fullName: "", mobile: "", streetAddress: "", landmark: "", city: "", state: "", pincode: "" }
     const [shippingData, setShippingData] = useState(initState);
     const [orderPlaced, setOrderPlaced] = useState(false);
+
     const toast = useToast();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    
     const token = useSelector((state) => state.authReducer.token);
     const { cart, amount } = useSelector((state) => state.cartReducer, shallowEqual);
 
@@ -37,8 +30,8 @@ export const Checkout = () => {
                 setOrderPlaced(true);
                 notify(toast, "Order placed successfully", "success");
                 setTimeout(() => {
-                    navigate("/");
-                }, 5000);
+                    navigate("/orders");
+                }, 3000);
             }, 2000);
         }
     };

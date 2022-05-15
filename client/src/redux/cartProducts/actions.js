@@ -109,6 +109,8 @@ export const setShippingAddressRequest = (payload, amount, product, token, toast
 
         const details = { address: res.data._id, amount, product };
         await axios.post("/orders", details, { headers: { 'Authorization': `Bearer ${token}` } });
+
+        
     } catch (err) {
         console.log(err.response.data);
         notify(toast, "Something went wrong", "error");
