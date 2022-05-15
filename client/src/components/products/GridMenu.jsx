@@ -18,8 +18,8 @@ export const GridMenu = () => {
 
     return (
         <>
-            <Menu>
-                <MenuButton as={Button} display={['none', 'none','none', 'inline-block']} rightIcon={<BsFillCaretDownFill />}>Grid</MenuButton>
+            <Menu >
+                <MenuButton as={Button} display={['none', 'none', 'none', 'block']} rightIcon={<BsFillCaretDownFill />} >Grid</MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleGrid} value={2}>(2 X 3) Products Grid</MenuItem>
                     <MenuItem onClick={handleGrid} value={3}>(3 X 3) Products Grid</MenuItem>

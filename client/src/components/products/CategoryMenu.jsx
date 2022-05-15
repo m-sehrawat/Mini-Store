@@ -16,7 +16,7 @@ export const CategoryMenu = () => {
     return (
         <>
             <Menu>
-                <MenuButton as={Button} rightIcon={<BsFillCaretDownFill />}>Category</MenuButton>
+                <MenuButton px={'10px'} as={Button} rightIcon={<BsFillCaretDownFill />}>Category</MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleCategoryChange} value={'allCategory'}>All Categories</MenuItem>
                     <MenuItem onClick={handleCategoryChange} value={'cloths'}>Cloths</MenuItem>

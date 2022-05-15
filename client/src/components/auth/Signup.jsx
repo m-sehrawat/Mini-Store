@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { signupRequest } from "../../redux/auth/actions";
+import { signupValidator } from "../../utils/extrafunctions";
 
 
 export const Signup = () => {
@@ -18,7 +19,9 @@ export const Signup = () => {
     }
 
     const handleSubmit = () => {
-        dispatch(signupRequest(signup, toast, navigate));
+        if(signupValidator(signup, toast)){
+            dispatch(signupRequest(signup, toast, navigate));
+        }
     }
 
     return (

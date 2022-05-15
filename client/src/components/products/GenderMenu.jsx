@@ -16,7 +16,7 @@ export const GenderMenu = () => {
     return (
         <>
             <Menu>
-                <MenuButton as={Button} rightIcon={<BsFillCaretDownFill />}>Gender</MenuButton>
+                <MenuButton px={'10px'} as={Button} rightIcon={<BsFillCaretDownFill />}>Gender</MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleGenderChange} value={'allProducts'}>All Products</MenuItem>
                     <MenuItem onClick={handleGenderChange} value={'men'}>Men</MenuItem>

@@ -42,7 +42,7 @@ export const Cart = () => {
                         {cart.map((e, i) => (
                             <CartBox key={i} data={e} />
                         ))}
-                        <Flex p={'20px'} justify={'end'} gap={'10px'}>
+                        <Flex flexDirection={['column','row','row','row']} p={'20px'} justify={'end'} gap={'10px'}>
                             <Button><Link to={'/products'}>Add more Products</Link></Button>
                             <Button variant={'solid'}><Link to={'/checkout'}>Proceed to Checkout</Link></Button>
                         </Flex>

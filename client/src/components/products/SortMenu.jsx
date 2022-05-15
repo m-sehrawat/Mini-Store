@@ -14,7 +14,7 @@ export const SortMenu = () => {
     return (
         <>
             <Menu>
-                <MenuButton as={Button} rightIcon={<BsFillCaretDownFill />}>Sort</MenuButton>
+                <MenuButton px={'10px'} as={Button} rightIcon={<BsFillCaretDownFill />}>Sort</MenuButton>
                 <MenuList>
                     <MenuItem onClick={handleSort} value={'priceLH'}>Price: Low - High</MenuItem>
                     <MenuItem onClick={handleSort} value={'priceHL'}>Price: High - Low</MenuItem>
