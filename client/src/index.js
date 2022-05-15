@@ -10,7 +10,7 @@ import axios from 'axios';
 import { theme } from './theme';
 
 
-axios.defaults.baseURL = "http://localhost:5500";
+axios.defaults.baseURL = "https://mohit-ministore.herokuapp.com/";
 
 ReactDOM.render(
   <React.StrictMode>
