@@ -21,9 +21,9 @@ export const GridMenu = () => {
             <Menu >
                 <MenuButton as={Button} display={['none', 'none', 'none', 'block']} rightIcon={<BsFillCaretDownFill />} >Grid</MenuButton>
                 <MenuList>
-                    <MenuItem onClick={handleGrid} value={2}>(2 X 3) Products Grid</MenuItem>
-                    <MenuItem onClick={handleGrid} value={3}>(3 X 3) Products Grid</MenuItem>
-                    <MenuItem onClick={handleGrid} value={4}>(4 X 3) Products Grid</MenuItem>
+                    <MenuItem onClick={handleGrid} value={2}>(2 X 2) Products Grid</MenuItem>
+                    <MenuItem onClick={handleGrid} value={3}>(2 X 3) Products Grid</MenuItem>
+                    <MenuItem onClick={handleGrid} value={4}>(2 X 4) Products Grid</MenuItem>
                 </MenuList>
             </Menu>
         </>
