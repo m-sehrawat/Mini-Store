@@ -92,6 +92,30 @@
 
 <br />
 
+## Test Coupon Codes
+```
+MINISTORE5     (for 5% Off)
+
+MINISTORE10    (for 10% Off)
+
+MINISTORE15    (for 15% Off)
+
+MINISTORE20    (for 15% Off)
+
+MINISTORE25    (for 25% Off)
+
+MINISTORE30    (for 30% Off)
+
+LUCKYDAY       (for 40% Off)
+
+MONDAYSALE     (for 20% Off)
+
+WEEKENDOFF     (for 20% Off)
+
+MASAI30        (for 30% Off)
+```
+<br />
+
 ## Demo
 
 
