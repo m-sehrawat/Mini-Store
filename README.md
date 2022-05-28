@@ -55,16 +55,16 @@
 - Product Sorting Based on Price, Ratings, Namings
 - Product Filters Based on Gender, Category, Grid View
 - Products Pagination (Default 6 Products Per Page)
-- Products Pagination Change Button (can set 4 products, 6 product or 8 products per page)
+- Products Pagination Change Button (can set 4 products, 6 products or 8 products per page)
 - Wishlist Add/Remove Items
 - From wishlist to directly Add-to-Cart feature
-- Cart Add/Remove Items 
+- Cart Add/Remove Items
 - Cart Update Quantities
 - Address Management
 - Order Summary
-- Coupons provided for discount
+- Coupons are provided for the discount
 - Order details of all ordered item
-- Darkmode available
+- Dark mode is available
 
 <br />
 
