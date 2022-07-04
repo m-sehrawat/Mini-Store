@@ -21,7 +21,7 @@
     <a href="#Demo">View Demo</a>   &#10023;  
     <a href="https://github.com/m-sehrawat/Mini-Store/issues">Report Bug</a>    &#10023;
     <a href="#Getting-Started">Getting Started</a> &#10023; <a href="#Install">Installing</a> &#10023;    
-    <a href="#Author">Author</a> &#10023;
+    <a href="#Contact">Author</a> &#10023;
   </p>
   
   Mini-Store is an e-commerce web application that allows you to buy shoes & clothes online. It has a variety of categories, just visit the product listing page and you will see all the products, apply filters as per your need and in just a few clicks you can buy any products from the website.
@@ -118,7 +118,7 @@ MASAI30        (for 30% Off)
 
 ## Demo
 
-
+[Check here to see the presentation video of this project](https://www.linkedin.com/posts/m-sehrawat_programming-marketing-computerscience-activity-6932731204051816448-q0vg?utm_source=linkedin_share&utm_medium=member_desktop_web)
 
 
 <br/>
@@ -223,7 +223,7 @@ To run this project, you will need to add the following environment variables to
 
 
 
-<h2>📬 Contact</h2>
+## Contact
 
 If you want to contact me, you can reach me through below handles.
 
