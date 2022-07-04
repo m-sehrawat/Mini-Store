@@ -146,3 +146,6 @@ export const dateFormat = (dt) => {
     return { date, time };
 }
 
+export const getFirstName = (str) => {
+    return str.split(" ")[0];
+}

@@ -8,6 +8,7 @@ import { BigIcon, NavButton } from "../theme/Theme";
 import { BsSun, BsMoonStars, BsCart, BsHeart } from 'react-icons/bs';
 import { FiLogIn, FiHome } from 'react-icons/fi';
 import { CgDisplayGrid } from 'react-icons/cg';
+import { getFirstName } from "../../utils/extrafunctions";
 
 
 export const Navbar = () => {
@@ -42,7 +43,7 @@ export const Navbar = () => {
                         {colorMode === "light" ? <BigIcon label={'Dark Mode'} icon={BsMoonStars} /> : <BigIcon label={'Light Mode'} icon={BsSun} />}
                     </Button>
 
-                    {!!token ? <Logout name={user.name} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
+                    {!!token ? <Logout name={getFirstName(user.name)} /> : <NavButton name={<BigIcon label={'Login'} icon={FiLogIn} />} path={'/login'} />}
                 </Center>
             </Flex>
         </>
