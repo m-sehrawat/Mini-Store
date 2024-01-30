@@ -11,7 +11,7 @@ import { theme } from './theme';
 
 
 // axios.defaults.baseURL = "http://localhost:3000/";
-// axios.defaults.baseURL = "https://mini-store-backend.onrender.com";
+axios.defaults.baseURL = "https://mini-store-backend.onrender.com";
 
 ReactDOM.render(
   <React.StrictMode>
